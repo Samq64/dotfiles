@@ -11,6 +11,8 @@ export HISTCONTROL='ignoreboth'
 export EDITOR='nvim'
 
 # Aliases
-alias ls='ls -A --color=auto --group-directories-first'
 alias vi='nvim'
 alias gs='git status'
+
+alias ls='ls -A --color=auto --group-directories-first'
+alias grep='grep -rin --color=auto'
