@@ -1,0 +1,51 @@
+* {
+    background-color: transparent;
+    text-color: #C5C8C6;
+    spacing: 0;
+}
+
+window {
+    width: 30%;
+    background-color: #262626D8;
+}
+
+element {
+    padding: 8 12;
+}
+
+element selected {
+    background-color: #FFF1;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 20;
+    padding: 0 8 0 0;
+}
+
+mainbox {
+    children: [inputbar, listview];
+}
+
+inputbar {
+    children: [prompt, entry];
+    border: 0px 0px 2px 0px;
+    border-color: #08C;
+}
+
+prompt {
+    padding: 12 0 0 12;
+}
+
+entry {
+    padding: 12;
+}
+
+listview {
+    columns: 1;
+    lines: 10;
+}
+
