@@ -6,9 +6,7 @@ PS1='[\u@\h \W]\$ '
 
 # Exports
 export TERM='xterm-256color'
-export PATH=~/.local/bin:$PATH
 export HISTCONTROL='ignoreboth'
-export EDITOR='nvim'
 
 # Aliases
 alias vi='nvim'

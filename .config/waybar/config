@@ -53,7 +53,7 @@
     },
     "battery": {
         "states": {
-            "full": 98,
+            "full-at": 98,
             "warning": 30,
             "critical": 15
         },
