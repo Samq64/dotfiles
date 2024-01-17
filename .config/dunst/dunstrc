@@ -52,7 +52,7 @@
     progress_bar_max_width = 300
 
     # Corner radius for the progress bar. 0 disables rounded corners.
-    progress_bar_corner_radius = 0
+    progress_bar_corner_radius = 2
 
     # Corner radius for the icon image.
     icon_corner_radius = 0
@@ -76,7 +76,8 @@
 
     # Defines colors
     background = "#262626D8"
-    foreground = "#ffffff"
+    foreground = "#fff"
+    highlight = "#08C"
 
 
     # Size of gap to display between notifications - requires a compositor.
@@ -175,9 +176,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Papirus
-    # You can also set multiple icon themes, with the leftmost one being used first.
-    # icon_theme = "Adwaita, breeze"
+    icon_theme = "breeze, Adwaita"
 
     # Align icons left/right/top/off
     icon_position = left

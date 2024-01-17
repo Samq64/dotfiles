@@ -6,7 +6,8 @@
 
 window {
     width: 30%;
-    background-color: #262626D8;
+    background-color: #262626CC;
+    border-radius: 4;
 }
 
 element {
