@@ -9,6 +9,7 @@ end
 o.number = true
 o.smartcase = true
 o.cursorline = true
+o.colorcolumn = 80
 
 -- Use system clipboard
 o.clipboard = 'unnamedplus'
@@ -38,8 +39,8 @@ map('', '<C-s>', '<CMD>w<CR>')
 -- Ctrl+C to quit w/o saving
 map('', '<C-c>', '<CMD>q!<CR>')
 
--- S to replace all
-map('n', 'S', ':%s//gI<Left><Left><Left>')
+-- leader+r to replace all
+map('n', '<leader>r', ':%s///gI<Left><left><Left><Left>')
 
 -- leader+S to toggle spellcheck
 map('n', '<leader>s', ':setlocal spell! spelllang=en_ca<CR>')
