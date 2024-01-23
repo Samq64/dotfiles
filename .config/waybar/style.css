@@ -19,7 +19,7 @@ window#waybar {
 button {
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 4;
+    border-radius: 4px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */

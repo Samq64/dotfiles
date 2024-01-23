@@ -89,7 +89,7 @@
     "custom/menu": {
         "format": "",
         "tooltip": false,
-        "on-click": "rofi -show drun",
+        "on-click": "sleep 0.1 && rofi -show drun",
         "on-click-right": "power.sh"
     }
 }
