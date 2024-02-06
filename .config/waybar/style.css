@@ -1,6 +1,5 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "JetBrainsMono NF", sans-serif;
     font-size: 12px;
 }
 
@@ -47,7 +46,7 @@ button:hover {
     min-width: 16px;
 }
 
-#workspaces button.active {
+#workspaces button.visible {
     background-color: rgba(255, 255, 255, 0.1)
 }
 

@@ -4,3 +4,7 @@ foreground = "#c5c8c6"
 
 [window]
 opacity = 0.85
+
+[font]
+normal = { family = "JetBrainsMono NF", style = "Regular" }
+size = 11

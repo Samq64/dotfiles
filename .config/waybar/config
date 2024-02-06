@@ -7,18 +7,17 @@
 
     "hyprland/workspaces": {
         "format": "{name} {windows}",
-        "format-window-separator": "  ",
-        "window-rewrite-default": "",
+        "format-window-separator": " ",
+        "window-rewrite-default": "",
         "window-rewrite": {
             "class<alacritty>": "",
             "title<nvim.*>": "",
             "class<thunar>": "",
-            "class<firefox>": "",
-            "class<brave-browser>": "",
+            "class<firefox>": "󰈹",
             "class<code-oss>": "",
             "class<thunderbird>": "",
             "class<steam>": "",
-            "class<webcord>": "",
+            "class<webcord>": "󰙯",
             "class<Github Desktop": ""
         }
     },
@@ -39,7 +38,7 @@
         "on-click": "alacritty -e htop"
     },
     "memory": {
-        "format": " {}%",
+        "format": " {}%",
         "on-click": "alacritty -e htop"
     },
     "temperature": {
@@ -63,10 +62,10 @@
         },
         "format": "{icon} {capacity}%",
         "format-alt": "{icon}",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-charging": "󰢟 {capacity}%",
+        "format-plugged": "󱊦 {capacity}%",
         "format-full": "", // An empty format will hide the module
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["󱃍", "󱊡", "󱊢", "󱊣"]
     },
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
@@ -87,7 +86,7 @@
         "on-click": "pavucontrol"
     },
     "custom/menu": {
-        "format": "",
+        "format": "",
         "tooltip": false,
         "on-click": "sleep 0.1 && rofi -show drun",
         "on-click-right": "power.sh"
