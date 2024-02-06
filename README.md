@@ -32,6 +32,15 @@ The full Hyprland setup uses the following:
 - [VSCode](https://github.com/microsoft/vscode)
 - [Waybar](https://github.com/Alexays/Waybar)
 
+## Copying the files
+
+Install GNU Stow and run
+
+```bash
+git clone https://github.com/samq64/dotfiles
+cd dotfiles
+stow -t ~/ .
+```
 
 ## List of configurations
 
@@ -44,5 +53,6 @@ The full Hyprland setup uses the following:
 - Polybar
 - Qtile
 - Rofi
+- Starship
 - Waybar
 - Zsh
