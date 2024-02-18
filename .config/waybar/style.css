@@ -1,6 +1,6 @@
 * {
     font-family: "JetBrainsMono NF", sans-serif;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 window#waybar {
@@ -18,7 +18,6 @@ window#waybar {
 button {
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 4px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -26,7 +25,7 @@ button:hover {
     background: inherit;
 }
 
-#workspaces,
+#workspaces button,
 #window,
 #clock,
 #battery,
@@ -38,7 +37,7 @@ button:hover {
 #wireplumber,
 #tray,
 #custom-menu {
-    padding: 0 8px;
+    padding: 8px;
     margin: 4px 2px 0 2px;
     color: #ffffff;
     background-color: rgba(38, 38, 38, 0.8);
@@ -46,17 +45,13 @@ button:hover {
     min-width: 16px;
 }
 
-#workspaces button.visible {
-    background-color: rgba(255, 255, 255, 0.1)
-}
-
-#workspaces button {
-    margin: 2px 1px;
+#workspaces {
     background-color: transparent;
 }
 
-#workspaces button:hover {
-    background: rgba(255, 255, 255, 0.05);
+#workspaces button:hover,
+#workspaces button.visible {
+    background: rgba(50, 50, 50, 0.8);
 }
 
 #pulseaudio.muted,

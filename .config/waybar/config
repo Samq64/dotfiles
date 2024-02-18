@@ -6,7 +6,7 @@
     "modules-right": ["cpu", "memory", "temperature", "backlight", "battery", "pulseaudio", "clock", "tray"],
 
     "hyprland/workspaces": {
-        "format": "{name} {windows}",
+        "format": "{icon} {name} {windows}",
         "format-window-separator": " ",
         "window-rewrite-default": "",
         "window-rewrite": {
@@ -19,6 +19,10 @@
             "class<steam>": "",
             "class<webcord>": "󰙯",
             "class<Github Desktop": ""
+        },
+        "format-icons": {
+            "visible": "󰐾",
+            "default": "󰝦"
         }
     },
     "hyprland/window": {
