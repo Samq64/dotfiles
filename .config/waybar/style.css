@@ -1,3 +1,7 @@
+/* Requires a nerd font
+* Color-scheme based on tokyo-night
+*/
+
 * {
     font-family: "JetBrainsMono NF", sans-serif;
     font-size: 14px;
@@ -39,8 +43,8 @@ button:hover {
 #custom-menu {
     padding: 8px;
     margin: 4px 2px 0 2px;
-    color: #ffffff;
-    background-color: rgba(38, 38, 38, 0.8);
+    color: #a9b1d6;
+    background-color: rgba(26, 27, 38, 0.8);
     border-radius: 4px;
     min-width: 16px;
 }
@@ -49,24 +53,24 @@ button:hover {
     background-color: transparent;
 }
 
-#workspaces button:hover,
+/*#workspaces button:hover,
 #workspaces button.visible {
     background: rgba(50, 50, 50, 0.8);
-}
+}*/
 
 #pulseaudio.muted,
 #wireplumber.muted,
 #network.disconnected {
-    color: #707880
+    color: #444b6a
 }
 
 #battery.charging, #battery.plugged {
-    color: #26A65B;
+    color: #9ece6a;
 }
 
 @keyframes blink {
     to {
-        color: #fff;
+        color: #a9b1d6;
     }
 }
 
@@ -74,7 +78,7 @@ button:hover {
 #workspaces button.urgent,
 #temperature.critical,
 #tray > .needs-attention {
-    color: #f53c3c;
+    color: #f7768e;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -83,7 +87,7 @@ button:hover {
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: #32344a;
 }
 
 #tray > .passive {

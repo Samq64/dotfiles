@@ -1,12 +1,14 @@
+/* Color-scheme based on tokyo-night */
+
 * {
     background-color: transparent;
-    text-color: #C5C8C6;
+    text-color: #a9b1d6;
     spacing: 0;
 }
 
 window {
     width: 500px;
-    background-color: #262626CC;
+    background-color: #1a1b26cc;
     border-radius: 4;
 }
 
@@ -34,7 +36,7 @@ mainbox {
 inputbar {
     children: [prompt, entry];
     border: 0px 0px 2px 0px;
-    border-color: #08C;
+    border-color: #7aa2f7;
 }
 
 prompt {

@@ -1,9 +1,7 @@
-[colors.primary]
-background = "#262626"
-foreground = "#c5c8c6"
+import = ["~/.config/alacritty/themes/tokyo-night.toml"]
 
 [window]
-opacity = 0.85
+opacity = 0.9
 
 [font]
 normal = { family = "JetBrainsMono NF", style = "Regular" }
