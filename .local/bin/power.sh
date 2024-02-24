@@ -14,5 +14,5 @@ elif [[ $action == "Quick restart" ]]; then
 elif [[ $action == "Sleep" ]]; then
     systemctl suspend
 elif [[ $action == "Lock" ]]; then
-    gtklock -i
+    hyprlock
 fi
