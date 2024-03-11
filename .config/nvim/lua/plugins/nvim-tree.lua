@@ -7,6 +7,6 @@ return {
         filters = {
             dotfiles = true,
         }
-        vim.keymap.set("n", "<leader>n", ":NvimTreeToggle <CR>", {})
+        vim.keymap.set("n", "<leader>t", ":NvimTreeToggle <CR>", {})
     end,
 }

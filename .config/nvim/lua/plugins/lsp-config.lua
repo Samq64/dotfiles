@@ -1,4 +1,15 @@
 return {
+    { "L3MON4D3/LuaSnip" },
+    {
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v3.x",
+        config = function()
+            local lsp_zero = require("lsp-zero")
+            lsp_zero.on_attach(function(client, bufnr)
+                lsp_zero.default_keymaps({ buffer = bufnr })
+            end)
+        end,
+    },
     {
         "williamboman/mason.nvim",
         config = function()
@@ -9,24 +20,31 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "tsserver" },
+                handlers = {
+                    require("lsp-zero").default_setup,
+                },
             })
         end,
     },
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            require("lsp-zero").extend_lspconfig()
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities
+            lspconfig.lua_ls.setup({})
+            lspconfig.tsserver.setup({})
+        end,
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = { "hrsh7th/cmp-nvim-lsp" },
+        config = function()
+            local cmp = require("cmp")
+            cmp.setup({
+                mapping = cmp.mapping.preset.insert({
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                }),
             })
-            lspconfig.tsserver.setup({
-                capabilities = capabilities
-            })
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
         end,
     },
 }
