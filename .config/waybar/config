@@ -42,7 +42,7 @@
         "on-click": "alacritty -e htop"
     },
     "memory": {
-        "format": " {}%",
+        "format": " {}%",
         "on-click": "alacritty -e htop"
     },
     "temperature": {

@@ -25,5 +25,4 @@ alias gs='git status'
 alias aur='yay'
 alias cat='bat'
 alias ls='exa -A --group-directories-first --icons=auto'
-alias grep='grep -rin --color=auto'
 
