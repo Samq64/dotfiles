@@ -5,8 +5,6 @@ My Linux dotfiles. A lot of them are vary basic or barely modified but others ar
 
 ## Hyprland setup
 
-![Hyrpland screenshot](screenshot.png)
-
 The full Hyprland setup uses the following:
 
 - [Alacritty](https://github.com/alacritty/alacritty)
@@ -48,11 +46,15 @@ stow -t ~/ .
 - Bash
 - Conky
 - Dunst
+- dwm (sort of)
+- Fish
+- Foot
 - Hyprland
 - Neovim
 - Polybar
 - Qtile
 - Rofi
+- st (sort of)
 - Starship
 - Waybar
 - Zsh
