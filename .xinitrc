@@ -37,7 +37,7 @@ xrandr --output HDMI-1 --left-of DP-3 --rotate left
 # Statusbar loop
 while true; do
   muted=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
-  if [[ $muted = yes ]]; then
+  if [ "$muted" = "yes" ]; then
     volume=🔇
   else
     volume=🔊$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)%
