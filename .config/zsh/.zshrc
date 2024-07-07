@@ -1,7 +1,7 @@
 setopt autocd prompt_subst interactive_comments
 unsetopt beep
-bindkey -e
 stty stop undef # Disable Ctrl+S to freeze terminal
+TERM=xterm-256color # For zsh-autosuggestions on TTY
 
 # History
 HISTSIZE=10000
@@ -33,6 +33,7 @@ autoload -Uz colors && colors
 PROMPT='%{$fg[magenta]%}%n@%M %{$fg[cyan]%}%~%{$reset_color%} %F{yellow}${vcs_info_msg_0_}%f$ '
 
 # keybinds
+bindkey -e
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
@@ -43,10 +44,23 @@ bindkey "^[[B" down-line-or-beginning-search    # Down arrow
 alias v="nvim"
 alias l="exa -Al --group-directories-first --icons=auto"
 alias gs="git status"
+alias gc="git commit -m"
 alias gd="git diff --staged"
-alias pmi="sudo pacman -S"
+alias pm="pacman"
+alias pmi="sudo pacman -S --needed"
 alias pmr="sudo pacman -Rns"
 
+# Change working directory with Yazi
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
 # Plugins
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -x "$(command -v fzf)" ] && source <(fzf --zsh)
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null

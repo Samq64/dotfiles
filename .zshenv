@@ -13,6 +13,4 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
-[[ ! $DISPLAY && $(tty) = /dev/tty1 ]] && startx
+ZDOTDIR="$XDG_CONFIG_HOME/zsh"
