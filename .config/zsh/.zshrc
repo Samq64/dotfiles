@@ -30,7 +30,8 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 # Prompt
 autoload -Uz colors && colors
-PROMPT='%{$fg[magenta]%}%n@%M %{$fg[cyan]%}%~%{$reset_color%} %F{yellow}${vcs_info_msg_0_}%f$ '
+PROMPT='%{$fg[magenta]%}%n@%M %{$fg[cyan]%}%~%{$reset_color%} $ '
+RPROMPT='%F{yellow}${vcs_info_msg_0_}%f'
 
 # keybinds
 bindkey -e
@@ -46,9 +47,30 @@ alias l="exa -Al --group-directories-first --icons=auto"
 alias gs="git status"
 alias gc="git commit -m"
 alias gd="git diff --staged"
+alias rgrep="grep -Irn --color=auto"
 alias pm="pacman"
-alias pmi="sudo pacman -S --needed"
-alias pmr="sudo pacman -Rns"
+alias pms="pacman -Ss"
+alias pmc="pacman -Qdtq | sudo pacman -Rns - "
+
+function pmi() {
+    packages=("$@")
+    if [ ${#packages[@]} -eq 0 ]; then
+        # Select interactively with fzf if there are no arguments
+        packages=($(pacman -Slq | fzf -m --preview 'pacman -Si {1}'))
+        echo "Selected for installation: $packages\n"
+    fi
+    sudo pacman -S --needed "${packages[@]}"
+}
+
+function pmr() {
+    packages=("$@")
+    if [ ${#packages[@]} -eq 0 ]; then
+        # Select interactively with fzf if there are no arguments
+        packages=($(pacman -Qeq | fzf -m --preview 'pacman -Qi {1}'))
+        echo "Selected for removal: $packages\n"
+    fi
+    sudo pacman -Rns "${packages[@]}"
+}
 
 # Change working directory with Yazi
 function y() {

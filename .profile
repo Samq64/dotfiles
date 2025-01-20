@@ -1,5 +1,6 @@
 export PATH="$HOME/.local/bin":$PATH
 export EDITOR="nvim"
+export MANPAGER="nvim +Man!"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -13,4 +14,5 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
