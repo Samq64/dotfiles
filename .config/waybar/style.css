@@ -8,10 +8,9 @@
 }
 
 window#waybar {
-    background-color: transparent;
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+    background-color: rgba(26, 27, 38, 0.9);
+    color: #a9b1d6;
+    transition: background-color 0.5s;
 }
 
 #waybar.empty #window {
@@ -41,22 +40,29 @@ button:hover {
 #wireplumber,
 #tray,
 #custom-menu {
-    padding: 8px;
-    margin: 4px 2px 0 2px;
-    color: #a9b1d6;
-    background-color: rgba(26, 27, 38, 0.8);
+    padding: 0 8px;
+    margin: 2px 1px;
     border-radius: 4px;
     min-width: 16px;
+    transition: background-color 0.5s;
 }
 
 #workspaces {
     background-color: transparent;
 }
 
-/*#workspaces button:hover,
-#workspaces button.visible {
-    background: rgba(50, 50, 50, 0.8);
-}*/
+#workspaces button:hover,
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#custom-menu:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
 #pulseaudio.muted,
 #wireplumber.muted,

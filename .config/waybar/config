@@ -10,15 +10,16 @@
         "format-window-separator": " ",
         "window-rewrite-default": "",
         "window-rewrite": {
-            "class<alacritty>": "",
+            "class<alacritty|foot>": "",
             "title<nvim.*>": "",
             "class<thunar>": "",
             "class<firefox>": "󰈹",
+            "class<chromium>": "",
             "class<code-oss>": "",
             "class<thunderbird>": "",
             "class<steam>": "",
-            "class<webcord>": "󰙯",
-            "class<Github Desktop": ""
+            "class<discord|webcord>": "",
+            "class<Github Desktop>": ""
         },
         "format-icons": {
             "visible": "󰐾",
@@ -32,7 +33,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": " {:%m/%d/%y  %H:%M}",
+        "format": " {:%m/%d/%y  %I:%M}",
         "format-alt": " {:%A, %B %d, %Y  %I:%M:%S %p}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
