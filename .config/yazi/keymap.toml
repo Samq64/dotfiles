@@ -1,0 +1,14 @@
+[[manager.prepend_keymap]]
+on   = [ "g", "/" ]
+run  = "cd /"
+desc = "Go to /"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "m" ]
+run  = "cd /run/media/$USER"
+desc = "Go to removable [m]edia"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "G" ]
+run  = "cd ~/Git"
+desc = "Go to ~/Git"
