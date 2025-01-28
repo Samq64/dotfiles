@@ -43,7 +43,7 @@ bindkey "^[[B" down-line-or-beginning-search    # Down arrow
 
 # Aliases
 alias v="nvim"
-alias l="exa -Al --group-directories-first --icons=auto"
+alias l="ls -Alh --color=always --group-directories-first"
 alias gs="git status"
 alias gc="git commit -m"
 alias gd="git diff --staged"
@@ -59,7 +59,7 @@ function pmi() {
         packages=($(pacman -Slq | fzf -m --preview 'pacman -Si {1}'))
         echo "Selected for installation: $packages\n"
     fi
-    sudo pacman -S --needed "${packages[@]}"
+    [ ${#packages[@]} -gt 0 ] && sudo pacman -S --needed "${packages[@]}"
 }
 
 function pmr() {
@@ -69,7 +69,7 @@ function pmr() {
         packages=($(pacman -Qeq | fzf -m --preview 'pacman -Qi {1}'))
         echo "Selected for removal: $packages\n"
     fi
-    sudo pacman -Rns "${packages[@]}"
+    [ ${#packages[@]} -gt 0 ] && sudo pacman -Rns "${packages[@]}"
 }
 
 # Change working directory with Yazi
