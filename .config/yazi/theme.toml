@@ -1,0 +1,8 @@
+[icon]
+prepend_dirs = [
+	{ name = ".cache", text = ""},
+	{ name = ".config", text = "" },
+	{ name = ".mozilla", text = "󰈹"},
+	{ name = ".steam", text = ""},
+	{ name = "Git", text = "󰊢" }
+]

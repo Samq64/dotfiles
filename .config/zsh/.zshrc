@@ -22,11 +22,7 @@ _comp_options+=(globdots) # Include hidden files.
 # Git
 autoload -Uz add-zsh-hook vcs_info
 add-zsh-hook precmd vcs_info
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '*'
-zstyle ':vcs_info:*' stagedstr '+'
-zstyle ':vcs_info:git:*' formats '(%b%u%c)'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+zstyle ':vcs_info:git:*' formats '(%b)'
 
 # Prompt
 autoload -Uz colors && colors
