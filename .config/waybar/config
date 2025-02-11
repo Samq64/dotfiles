@@ -12,14 +12,15 @@
         "window-rewrite": {
             "class<alacritty|foot>": "",
             "title<nvim.*>": "",
-            "class<thunar>": "",
+            "class<thunar|pcmanfm>": "",
             "class<firefox>": "󰈹",
             "class<chromium>": "",
             "class<code-oss>": "",
             "class<thunderbird>": "",
             "class<steam>": "",
             "class<discord|webcord>": "",
-            "class<Github Desktop>": ""
+            "class<Github Desktop>": "",
+            "class<org.prismlauncher.PrismLauncher>": "󰍳"
         },
         "format-icons": {
             "visible": "󰐾",

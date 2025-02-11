@@ -9,14 +9,12 @@ font=JetBrainsMono NF 9
 background-color=#1a1b26D8
 progress-color=#32344a
 text-color=#a9b1d6
+border-color=#7aa2f7
+default-timeout=10000
 
 [urgency=low]
 border-color=#444b6a
 default-timeout=3000
-
-[urgency=normal]
-border-color=#7aa2f7
-default-timeout=10000
 
 [urgency=high]
 border-color=#f7768e
