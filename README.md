@@ -5,30 +5,29 @@ My Linux dotfiles. A lot of them are vary basic or barely modified but others ar
 
 ## Hyprland setup
 
-The full Hyprland setup uses the following:
+As of February 2025 my Hyprland setup uses the following:
 
-- [Alacritty](https://github.com/alacritty/alacritty)
-- Breeze theme
-- [Brightnessctl](https://github.com/Hummer12007/brightnessctl)
-- [Dunst](https://github.com/dunst-project/dunst)
-- Firefox
-- [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
-- Grim
-- [GTKLock](https://github.com/jovanlanik/gtklock)
-- [Hyprpaper](https://github.com/hyprwm/hyprpaper)
-- Htop
-- lxsession-gtk3
-- network-manager-applet
-- PipeWire
-- PulseAudio volume control
-- [Rofi (Wayland fork)](https://github.com/lbonn/rofi)
-- [Rofimoji](https://github.com/fdw/rofimoji)
-- [Slurp](https://github.com/emersion/slurp)
-- [Swayidle](https://github.com/swaywm/swayidle)
-- [Udiskie](https://github.com/coldfix/udiskie)
-- Thunar
-- [VSCode](https://github.com/microsoft/vscode)
-- [Waybar](https://github.com/Alexays/Waybar)
+- launcher: [Rofi (wayland fork)](https://github.com/lbonn/rofi)
+- Bar: [Waybar](https://github.com/Alexays/Waybar)
+- Wallpaper daemon: [swaybg](https://github.com/swaywm/swaybg)
+- Idle daemon: [hypridle](https://github.com/hyprwm/hypridle)
+- Lock screen: [GTKLock](https://github.com/jovanlanik/gtklock)
+- Notifications: [Mako](https://github.com/emersion/mako)
+- Screenshots: [grimblast](https://github.com/hyprwm/contrib/tree/main/grimblast)
+- Automount: [Udiskie](https://github.com/coldfix/udiskie)
+- Authentication Agent: lxsession (GTK3)
+- Audio: PipeWire + pavucontrol
+- Shell: Zsh + zsh-syntax-highlighting + zsh-autosuggestions
+- System monitor: [Htop](https://htop.dev/), [fastfetch](https://github.com/fastfetch-cli/fastfetch)
+- Monospace font: [Jetbrains mono nerd](https://www.nerdfonts.com)
+- GTK theme: [Materia dark](https://github.com/nana-4/materia-theme)
+- Terminal: [Foot](https://codeberg.org/dnkl/foot)
+- Editor: [Neovim](https://neovim.io/)
+- File manager: pcmanfm (GTK3), [Yazi](https://github.com/sxyazi/yazi)
+- Web browser: Firefox with [arkenfox](https://github.com/arkenfox/user.js)
+- Image viewer: [imv](https://sr.ht/~exec64/imv/)
+- Media player: [mpv](https://mpv.io/)
+
 
 ## Copying the files
 
@@ -39,22 +38,3 @@ git clone https://github.com/samq64/dotfiles
 cd dotfiles
 stow -t ~/ .
 ```
-
-## List of configurations
-
-- Alacritty
-- Bash
-- Conky
-- Dunst
-- dwm (sort of)
-- Fish
-- Foot
-- Hyprland
-- Neovim
-- Polybar
-- Qtile
-- Rofi
-- st (sort of)
-- Starship
-- Waybar
-- Zsh
