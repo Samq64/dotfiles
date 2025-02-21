@@ -1,5 +1,12 @@
 #!/bin/sh
-action=$(printf "Lock\nSleep\nLog out\nShutdown\nHibernate\nRestart\nQuick restart" | rofi -dmenu -i -l 7 -p "")
+action=$(printf \
+"Lock
+Sleep
+Log out
+Shutdown
+Hibernate
+Restart
+Quick restart" | rofi -dmenu -i -l 7 -p "")
 
 case $action in
     "Log out")
@@ -15,5 +22,5 @@ case $action in
     "Sleep")
         systemctl suspend;;
     "Lock")
-        hyprlock;;
+        loginctl lock-session;;
 esac
