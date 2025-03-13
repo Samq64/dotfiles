@@ -36,7 +36,8 @@
     "clock": {
         "format": " {:%m/%d/%y  %I:%M}",
         "format-alt": " {:%A, %B %d, %Y  %I:%M:%S %p}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "on-click-right": "$TERMINAL --title 'Floating Terminal' --hold -e cal -y"
     },
     "cpu": {
         "format": " {usage}%",
@@ -103,7 +104,7 @@
 	    "tooltip-format-disconnected": "Network disconnected",
 	    "max-length": 50,
 	    "on-click": "toggle-network.sh",
-	    "on-click-right": "$TERMINAL -e nmtui"
+	    "on-click-right": "$TERMINAL --title 'Floating Terminal' -e nmtui connect"
 	},
     "custom/menu": {
         "format": "",

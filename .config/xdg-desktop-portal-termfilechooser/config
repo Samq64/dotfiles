@@ -1,3 +1,3 @@
 [filechooser]
-env=TERMCMD=foot -w 1000x600 --app-id termfilechooser
+env=TERMCMD=$TERMINAL --title "Floating Terminal"
 cmd=yazi-wrapper.sh
