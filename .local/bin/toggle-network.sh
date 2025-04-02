@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ $(nmcli networking connectivity) = "none" ]; then
+if [ "$(nmcli networking connectivity)" = "none" ]; then
 	nmcli networking on
 else
 	nmcli networking off

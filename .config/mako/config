@@ -1,3 +1,4 @@
+layer=overlay
 width=300
 height=300
 border-size=2
@@ -19,3 +20,5 @@ default-timeout=3000
 [urgency=high]
 border-color=#f7768e
 default-timeout=0
+
+# vim:ft=conf

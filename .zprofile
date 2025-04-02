@@ -3,6 +3,8 @@ export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
 export TERMINAL="foot"
 
+export ELECTRON_OZONE_PLATFORM_HINT="auto"
+
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -19,6 +21,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
+export DVDCSS_CACHE="$XDG_CACHE_HOME/dvdcss"
 
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
 	exec hyprland

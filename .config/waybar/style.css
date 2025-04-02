@@ -40,6 +40,7 @@ button:hover {
 #wireplumber,
 #network,
 #tray,
+#mpris,
 #custom-menu {
     padding: 0 8px;
     margin: 2px 1px;
@@ -62,6 +63,7 @@ button:hover {
 #pulseaudio:hover,
 #wireplumber:hover,
 #network:hover,
+#mpris:hover,
 #custom-menu:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }

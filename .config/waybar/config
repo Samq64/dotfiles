@@ -1,7 +1,7 @@
 {
     "layer": "top",
 
-    "modules-left": ["custom/menu", "hyprland/workspaces"],
+    "modules-left": ["custom/menu", "hyprland/workspaces", "mpris"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["cpu", "memory", "temperature", "backlight", "battery", "network", "pulseaudio", "clock", "tray"],
 
@@ -29,6 +29,14 @@
     },
     "hyprland/window": {
         "separate-outputs": true
+    },
+    "mpris": {
+        "format": "{status_icon} {dynamic}",
+        "status-icons": {
+            "playing": "󰏤",
+            "paused": "󰐊",
+            "stopped": "󰓛"
+        }
     },
     "tray": {
         "spacing": 10
@@ -90,7 +98,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "volume.sh toggle",
+        "on-click-right": "pavucontrol"
     },
     "network": {
 	    "interface": "wlp6s0",

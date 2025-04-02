@@ -6,6 +6,7 @@ msgTag="volume"
 
 if [ "$1" = "toggle" ]; then
     wpctl set-mute @DEFAULT_SINK@ toggle
+    wpctl set-mute @DEFAULT_SOURCE@ toggle
 else
     wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ "$@"
 fi
