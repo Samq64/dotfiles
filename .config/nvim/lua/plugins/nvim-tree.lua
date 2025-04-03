@@ -4,9 +4,11 @@ return {
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        filters = {
-            dotfiles = true,
-        }
-        vim.keymap.set("n", "<leader>t", ":NvimTreeToggle <CR>", {})
+        require("nvim-tree").setup({
+            filters = {
+                dotfiles = true,
+            },
+        })
+        vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle <CR>", { silent = true })
     end,
 }
