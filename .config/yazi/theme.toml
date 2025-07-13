@@ -1,3 +1,6 @@
+[flavor]
+dark = "tokyo-night"
+
 [icon]
 prepend_dirs = [
 	{ name = ".cache", text = ""},
