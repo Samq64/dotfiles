@@ -21,3 +21,5 @@ o.splitright = true
 
 o.timeout = true
 o.timeoutlen = 300
+
+o.textwidth = 100

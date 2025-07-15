@@ -9,6 +9,6 @@ return {
                 dotfiles = true,
             },
         })
-        vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle <CR>", { silent = true })
+        vim.keymap.set("n", "<leader>te", ":NvimTreeToggle <CR>", { silent = true })
     end,
 }
