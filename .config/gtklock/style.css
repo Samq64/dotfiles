@@ -1,0 +1,13 @@
+window {
+    background-image: url("/home/sam/Pictures/wallpaper.jxl");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#DP-1 #window-box {
+    background-color: #1a1b26;
+    border-radius: 4px;
+    padding: 1rem;
+    opacity: 0.9;
+}
