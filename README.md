@@ -28,13 +28,3 @@ As of February 2025 my Hyprland setup uses the following:
 - Image viewer: [imv](https://sr.ht/~exec64/imv/)
 - Media player: [mpv](https://mpv.io/)
 
-
-## Copying the files
-
-Install GNU Stow and run
-
-```bash
-git clone https://github.com/samq64/dotfiles
-cd dotfiles
-stow -t ~/ .
-```
