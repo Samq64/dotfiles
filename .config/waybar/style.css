@@ -32,9 +32,6 @@ button:hover {
 #window,
 #clock,
 #battery,
-#cpu,
-#memory,
-#temperature,
 #backlight,
 #pulseaudio,
 #wireplumber,
@@ -56,9 +53,6 @@ button:hover {
 #workspaces button:hover,
 #clock:hover,
 #battery:hover,
-#cpu:hover,
-#memory:hover,
-#temperature:hover,
 #backlight:hover,
 #pulseaudio:hover,
 #wireplumber:hover,
@@ -86,7 +80,6 @@ button:hover {
 
 #battery.critical:not(.charging),
 #workspaces button.urgent,
-#temperature.critical,
 #tray > .needs-attention {
     color: #f7768e;
     animation-name: blink;
@@ -94,6 +87,10 @@ button:hover {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#privacy-item.audio-in {
+    color: #f7768e;
 }
 
 label:focus {
