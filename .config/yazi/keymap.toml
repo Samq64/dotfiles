@@ -9,11 +9,16 @@ run  = "cd /run/media/$USER"
 desc = "Go to removable [m]edia"
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "G" ]
-run  = "cd ~/Git"
-desc = "Go to ~/Git"
+on   = [ "g", "d" ]
+run  = "cd ~/dev"
+desc = "Go to ~/dev"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "D" ]
+run  = "cd ~/Downloads"
+desc = "Go to downloads"
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "s" ]
-run  = "cd ~/Pictures/screenshots"
+run  = "cd ~/images/screenshots"
 desc = "Go to screenshots"

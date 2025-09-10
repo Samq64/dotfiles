@@ -1,26 +1,26 @@
 #!/bin/sh
 action=$(printf \
-"Log out
-Shutdown
+"Shutdown
 Reboot
 Soft Reboot
-BIOS Reboot
+Reboot into BIOS
 Sleep
-Lock" | rofi -dmenu -i -l 7 -p "")
+Lock
+Log Out" | rofi -dmenu -i -l 7 -p "")
 
 case $action in
-    "Log out")
-        hyprctl dispatch exit;;
     "Shutdown")
         systemctl poweroff;;
     "Reboot")
         systemctl reboot;;
     "Soft Reboot")
         systemctl soft-reboot;;
-    "BIOS Reboot")
+    "Reboot into BIOS")
         systemctl reboot --firmware-setup;;
     "Sleep")
         systemctl suspend;;
     "Lock")
         loginctl lock-session;;
-    esac
+    "Log Out")
+        hyprctl dispatch exit;;
+esac

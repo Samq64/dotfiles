@@ -1,8 +1,5 @@
--- Map the leader key to <space>
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-require("lazy-bootstrap")
-require("options")
+require("globals")
 require("keybinds")
+require("options")
+require("lazy-bootstrap")
 require("lsp")
