@@ -22,5 +22,10 @@ case $action in
     "Lock")
         loginctl lock-session;;
     "Log Out")
-        hyprctl dispatch exit;;
+        case $XDG_CURRENT_DESKTOP in
+            "Hyprland")
+                hyprctl dispatch exit;;
+            "niri")
+                niri msg action quit -s;;
+        esac
 esac
