@@ -1,0 +1,155 @@
+# Swayimg configuration file.
+# vim: filetype=dosini
+
+# Any of these options can be overridden using the --config argument
+# on the command line, for instance:
+# $ swayimg --config="general.mode=gallery"
+
+[general]
+size = image
+overlay = no
+
+[font]
+name = JetBrainsMono NF:size=11
+size = 11
+color = #ffffff
+shadow = #000000
+
+[viewer]
+window = #1a1b26e6
+history = 3
+
+[slideshow]
+window = auto
+transparency = #202020
+scale = fit
+
+[gallery]
+size = 200
+cache = 250
+preload = yes
+window = #1a1b26e6
+border = #7da6ff
+
+[info.viewer]
+top_left = +name,+dir,+format,+filesize,+imagesize,+exif
+top_right = index
+bottom_left = scale,frame
+bottom_right = status
+
+[info.slideshow]
+top_left = none
+top_right = none
+bottom_left = dir
+bottom_right = status
+
+[info.gallery]
+top_left = name
+top_right = index
+bottom_left = none
+bottom_right = status
+
+[keys.viewer]
+F1 = help
+Home = first_file
+End = last_file
+Prior = prev_file
+Next = next_file
+Space = animation
+Shift+r = rand_file
+Shift+o = prev_frame
+o = next_frame
+c = skip_file
+s = mode slideshow
+f = fullscreen
+Return = mode gallery
+Left = prev_file
+Right = next_file
+Up = prev_dir
+Down = next_dir
+Equal = zoom +10
+Minus = zoom -10
+w = zoom width
+Shift+w = zoom height
+z = zoom fit
+Shift+z = zoom fill
+0 = zoom real
+BackSpace = zoom optimal
+k = zoom keep
+Alt+s = zoom
+bracketleft = rotate_left
+bracketright = rotate_right
+m = flip_vertical
+Shift+m = flip_horizontal
+a = antialiasing
+r = reload
+i = info
+Shift+Delete = exec rm -f '%' && echo "File removed: %"; skip_file
+Escape = exit
+q = exit
+
+ScrollLeft = step_right 5
+ScrollRight = step_left 5
+ScrollUp = step_up 5
+ScrollDown = step_down 5
+# Add mouse to the end after next release
+Ctrl+ScrollUp = zoom +10
+Ctrl+ScrollDown = zoom -10
+Shift+ScrollUp = prev_file
+Shift+ScrollDown = next_file
+Alt+ScrollUp = prev_frame
+Alt+ScrollDown = next_frame
+MouseLeft = drag
+MouseSide = prev_file
+MouseExtra = next_file
+
+[keys.slideshow]
+F1 = help
+Home = first_file
+End = last_file
+Prior = prev_file
+Next = next_file
+Left = prev_file
+Right = next_file
+Up = prev_dir
+Down = next_dir
+Shift+r = rand_file
+Space = pause
+i = info
+f = fullscreen
+Return = mode
+Escape = exit
+q = exit
+
+[keys.gallery]
+F1 = help
+Home = first_file
+End = last_file
+Left = step_left
+Right = step_right
+Up = step_up
+Down = step_down
+Prior = page_up
+Next = page_down
+c = skip_file
+s = mode slideshow
+f = fullscreen
+Return = mode viewer
+a = antialiasing
+r = reload
+i = info
+Equal = thumb +20
+Minus = thumb -20
+Shift+Delete = exec rm -f '%' && echo "File removed: %"; skip_file
+Escape = exit
+q = exit
+
+ScrollLeft = step_right
+ScrollRight = step_left
+ScrollUp = step_up
+ScrollDown = step_down
+Ctrl+ScrollUp = thumb +20
+Ctrl+ScrollDown = thumb -20
+MouseLeft = mode viewer
+
+w = exec ln -sf '%' ~/.local/share/wallpaper && echo 'wallpaper set' && swaybg -m fill -i ~/.local/share/wallpaper &
