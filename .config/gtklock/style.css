@@ -1,5 +1,5 @@
 window {
-    background-image: url("/home/sam/img/wallpaper.jxl");
+    background-image: url("../../.local/share/wallpaper");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
