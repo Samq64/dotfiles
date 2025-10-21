@@ -3,12 +3,13 @@
 
     "modules-left": ["custom/menu", "hyprland/workspaces", "mpris"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["backlight", "battery", "network", "pulseaudio", "clock", "privacy", "tray"],
+    "modules-right": ["network", "pulseaudio", "clock", "privacy", "tray"],
 
     "hyprland/workspaces": {
         "format": "{icon} {name} {windows}",
         "format-icons": {
             "visible": "󰐾",
+            "urgent": "󰗖",
             "default": "󰝦"
         },
         "workspace-taskbar": {
@@ -98,8 +99,8 @@
     },
     "custom/menu": {
         "format": "",
-        "tooltip": false,
-        "on-click": "sleep 0.1 && rofi -show drun",
+        "tooltip-format": "Launcher (right click for power menu)",
+        "on-click": "rofi -show drun",
         "on-click-right": "power.sh"
     }
 }
