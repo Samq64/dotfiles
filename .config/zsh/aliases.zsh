@@ -1,7 +1,5 @@
 alias v="nvim"
 alias l="ls -Alh --color=always --group-directories-first"
-alias cat="bat"
-alias rgrep="grep -Irn --color=auto"
 
 # Change working directory with Yazi
 function y() {

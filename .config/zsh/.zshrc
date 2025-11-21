@@ -1,5 +1,5 @@
 [ -f "$ZDOTDIR/aliases.zsh" ] && source "$ZDOTDIR/aliases.zsh"
-setopt autocd correct prompt_subst interactive_comments
+setopt autocd prompt_subst interactive_comments
 unsetopt beep
 stty stop undef # Disable Ctrl+S to freeze terminal
 TERM=xterm-256color # For zsh-autosuggestions on TTY
@@ -9,7 +9,7 @@ HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 mkdir -p "$XDG_STATE_HOME/zsh"
 HISTFILE="$XDG_STATE_HOME/zsh/history"
-setopt share_history hist_ignore_all_dups hist_ignore_space
+setopt hist_ignore_all_dups hist_ignore_space
 
 # Autocomplete
 autoload -U compinit
