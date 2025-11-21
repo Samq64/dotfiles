@@ -1,0 +1,97 @@
+{
+    "layer": "top",
+
+    "modules-left": ["custom/menu", "ext/workspaces", "mpris"],
+    "modules-center": ["dwl/window"],
+    "modules-right": ["backlight", "battery", "network", "pulseaudio", "clock", "privacy", "tray"],
+    "ext/workspaces": {
+        "on-click": "activate",
+        "format": "{icon} {name}",
+        "format-icons": {
+           "active": "󰐾",
+            "urgent": "󰗖",
+            "default": "󰝦"
+        }
+    },
+    "dwl/window": {
+        "format": "[{layout}] {title}"
+    },
+    "mpris": {
+        "format": "{status_icon} {title}",
+        "status-icons": {
+            "playing": "󰏤",
+            "paused": "󰐊",
+            "stopped": "󰓛"
+        }
+    },
+    "tray": {
+        "spacing": 8
+    },
+    "clock": {
+        "format": " {:%m/%d/%y  %I:%M}",
+        "format-alt": " {:%A, %B %d, %Y  %I:%M:%S %p}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "on-click-right": "$TERMINAL --title 'Floating Terminal' --hold -e cal -y"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": " {percent}%",
+        "tooltip": false
+    },
+    "battery": {
+        "states": {
+            "full-at": 98,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-alt": "{icon}",
+        "format-charging": "󰢟 {capacity}%",
+        "format-plugged": "󱊦 {capacity}%",
+        "format-full": "", // An empty format will hide the module
+        "format-icons": ["󱃍", "󱊡", "󱊢", "󱊣"]
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "󰝟 {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "volume.sh toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "network": {
+	    "interface": "wlp6s0",
+	    "format": "{ifname}",
+	    "format-wifi": "  {essid} ({signalStrength}%)",
+	    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+	    "format-disconnected": "󰖪",
+	    "tooltip-format": "󰈀 {ifname} via {gwaddr}",
+	    "tooltip-format-wifi": "IP: {ipaddr} Interface: {ifname} ",
+	    "tooltip-format-ethernet": "IP: {ipaddr} Interface: {ifname}",
+	    "tooltip-format-disconnected": "Network disconnected",
+	    "max-length": 50,
+	    "on-click": "toggle-network.sh",
+	    "on-click-right": "$TERMINAL --title 'Floating Terminal' -e nmtui connect"
+	},
+    "privacy": {
+        "icon-size": 16,
+        "icon-spacing": 8
+    },
+    "custom/menu": {
+        "format": "🥭",
+        "tooltip-format": "Launcher (right click for power menu)",
+        "on-click": "rofi -show drun",
+        "on-click-right": "power.sh"
+    }
+}
