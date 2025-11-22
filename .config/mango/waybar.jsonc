@@ -2,7 +2,7 @@
     "layer": "top",
 
     "modules-left": ["custom/menu", "ext/workspaces", "mpris"],
-    "modules-center": ["dwl/window"],
+    "modules-center": ["dwl/window", "custom/date"],
     "modules-right": ["backlight", "battery", "network", "pulseaudio", "clock", "privacy", "tray"],
     "ext/workspaces": {
         "on-click": "activate",
@@ -93,5 +93,10 @@
         "tooltip-format": "Launcher (right click for power menu)",
         "on-click": "rofi -show drun",
         "on-click-right": "power.sh"
+    },
+    "custom/date": {
+        "exec": "[ -s $XDG_STATE_HOME/record_pid ] && echo 🔴",
+        "on-click": "record.sh",
+        "signal": 10
     }
 }
