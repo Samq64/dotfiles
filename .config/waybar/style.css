@@ -1,106 +1,66 @@
-/* Requires a nerd font
-* Color-scheme based on tokyo-night
-*/
+/* Colour scheme based on tokyo night, requires a nerd font */
 
-* {
-    font-family: "JetBrainsMono NF", sans-serif;
-    font-size: 14px;
-}
-
+tooltip,
 window#waybar {
-    background-color: rgba(26, 27, 38, 0.9);
-    color: #a9b1d6;
-    transition: background-color 0.5s;
+  background-color: rgba(26, 27, 38, 0.9);
+  color: #a9b1d6;
+  font-family: "JetBrainsMono NF", sans-serif;
+  font-size: 14px;
 }
 
-#waybar.empty #window {
-    background: none;
-    color: transparent;
+tooltip {
+  border: 1px solid rgba(122, 162, 247, 0.8);
 }
 
-button {
-    /* Avoid rounded borders under each button name */
-    border: none;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-}
-
+label.module:not(#custom-separator),
 #workspaces button,
-#window,
-#clock,
-#battery,
-#backlight,
-#pulseaudio,
-#wireplumber,
-#network,
-#tray,
-#mpris,
-#custom-menu {
-    padding: 0 8px;
-    margin: 2px 1px;
-    border-radius: 4px;
-    min-width: 16px;
-    transition: background-color 0.5s;
+#window {
+  padding: 0 6px;
+  margin: 2px 0;
+  border-radius: 4px;
+  transition: background-color 0.5s;
 }
 
-#workspaces {
-    background-color: transparent;
+label.module:not(#custom-separator):hover,
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-#workspaces button:hover,
-#clock:hover,
-#battery:hover,
-#backlight:hover,
-#pulseaudio:hover,
-#wireplumber:hover,
-#network:hover,
-#mpris:hover,
-#custom-menu:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+#privacy,
+#tray {
+  padding: 0 4px;
 }
 
+#custom-separator,
 #pulseaudio.muted,
-#wireplumber.muted,
 #network.disconnected {
-    color: #444b6a
-}
-
-#battery.charging, #battery.plugged {
-    color: #9ece6a;
-}
-
-@keyframes blink {
-    to {
-        color: #a9b1d6;
-    }
-}
-
-#battery.critical:not(.charging),
-#workspaces button.urgent,
-#tray > .needs-attention {
-    color: #f7768e;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #444b6a;
 }
 
 #privacy-item.audio-in {
-    color: #f7768e;
+  color: #f7768e;
 }
 
-label:focus {
-    background-color: #32344a;
+#workspaces button.urgent,
+#tray > .needs-attention {
+  color: #f7768e;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
+  -gtk-icon-effect: highlight;
+}
+
+@keyframes blink {
+  to {
+    color: #a9b1d6;
+  }
 }

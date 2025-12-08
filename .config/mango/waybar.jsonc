@@ -1,102 +1,113 @@
 {
-    "layer": "top",
+  "layer": "top",
+  "modules-left": [
+    "custom/menu",
+    "custom/separator",
+    "ext/workspaces",
+    "custom/separator",
+    "dwl/window",
+  ],
+  "modules-center": ["mpris"],
+  "modules-right": [
+    "network",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "clock",
+    "custom/separator",
+    "idle_inhibitor",
+    "privacy",
+    "tray",
+  ],
 
-    "modules-left": ["custom/menu", "ext/workspaces", "mpris"],
-    "modules-center": ["dwl/window", "custom/date"],
-    "modules-right": ["backlight", "battery", "network", "pulseaudio", "clock", "privacy", "tray"],
-    "ext/workspaces": {
-        "on-click": "activate",
-        "format": "{icon} {name}",
-        "format-icons": {
-           "active": "󰐾",
-            "urgent": "󰗖",
-            "default": "󰝦"
-        }
+  "custom/menu": {
+    "format": "🥭",
+    "tooltip-format": "Launcher (right click: power menu)",
+    "on-click": "rofi -show drun",
+    "on-click-right": "power.sh",
+  },
+
+  "ext/workspaces": {
+    "on-click": "activate",
+    "format": "{icon} {name}",
+    "format-icons": {
+      "active": "󰐾",
+      "urgent": "󰗖",
+      "default": "󰝦",
     },
-    "dwl/window": {
-        "format": "[{layout}] {title}"
+  },
+
+  "dwl/window": {
+    "format": "[{layout}] {title}",
+  },
+
+  "mpris": {
+    "format": "{status_icon} {title}",
+    "status-icons": {
+      "playing": "󰏤",
+      "paused": "󰐊",
+      "stopped": "󰓛",
     },
-    "mpris": {
-        "format": "{status_icon} {title}",
-        "status-icons": {
-            "playing": "󰏤",
-            "paused": "󰐊",
-            "stopped": "󰓛"
-        }
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-disconnected": "󰖪 ",
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "tooltip-format": "Gateway: {gwaddr}, Interface: {ifname}",
+    "tooltip-format-wifi": "IP: {ipaddr}, Gateway: {gwaddr}, Interface: {ifname}",
+    "tooltip-format-disconnected": "Network disconnected",
+    "on-click": "toggle-network.sh",
+    "on-click-right": "$TERMINAL --title 'Floating Terminal' -e nmtui connect",
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "󰂯 {icon} {volume}% {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "phone": "",
+      "phone-muted": "",
+      "default": ["", ""],
     },
-    "tray": {
-        "spacing": 8
+    "on-click": "volume.sh toggle",
+    "on-click-right": "pavucontrol",
+  },
+
+  "clock": {
+    "format": " {:%m/%d/%y  %H:%M}",
+    "format-alt": " {:%a %b %d %Y  %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "on-click-right": "$TERMINAL --title 'Floating Terminal' --hold -e cal -y",
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip-format-activated": "Idle inhibitor: on",
+    "tooltip-format-deactivated": "Idle inhibitor: off",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " ",
     },
-    "clock": {
-        "format": " {:%m/%d/%y  %I:%M}",
-        "format-alt": " {:%A, %B %d, %Y  %I:%M:%S %p}",
-        "tooltip-format": "<tt>{calendar}</tt>",
-        "on-click-right": "$TERMINAL --title 'Floating Terminal' --hold -e cal -y"
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": " {percent}%",
-        "tooltip": false
-    },
-    "battery": {
-        "states": {
-            "full-at": 98,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-alt": "{icon}",
-        "format-charging": "󰢟 {capacity}%",
-        "format-plugged": "󱊦 {capacity}%",
-        "format-full": "", // An empty format will hide the module
-        "format-icons": ["󱃍", "󱊡", "󱊢", "󱊣"]
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "󰝟 {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "volume.sh toggle",
-        "on-click-right": "pavucontrol"
-    },
-    "network": {
-	    "interface": "wlp6s0",
-	    "format": "{ifname}",
-	    "format-wifi": "  {essid} ({signalStrength}%)",
-	    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
-	    "format-disconnected": "󰖪",
-	    "tooltip-format": "󰈀 {ifname} via {gwaddr}",
-	    "tooltip-format-wifi": "IP: {ipaddr} Interface: {ifname} ",
-	    "tooltip-format-ethernet": "IP: {ipaddr} Interface: {ifname}",
-	    "tooltip-format-disconnected": "Network disconnected",
-	    "max-length": 50,
-	    "on-click": "toggle-network.sh",
-	    "on-click-right": "$TERMINAL --title 'Floating Terminal' -e nmtui connect"
-	},
-    "privacy": {
-        "icon-size": 16,
-        "icon-spacing": 8
-    },
-    "custom/menu": {
-        "format": "🥭",
-        "tooltip-format": "Launcher (right click for power menu)",
-        "on-click": "rofi -show drun",
-        "on-click-right": "power.sh"
-    },
-    "custom/date": {
-        "exec": "[ -s $XDG_STATE_HOME/record_pid ] && echo 🔴",
-        "on-click": "record.sh",
-        "signal": 10
-    }
+  },
+
+  "privacy": {
+    "icon-size": 16,
+    "icon-spacing": 8,
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+  },
+
+  "custom/separator": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false,
+  },
 }
