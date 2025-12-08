@@ -2,7 +2,11 @@
 setopt autocd prompt_subst interactive_comments
 unsetopt beep
 stty stop undef # Disable Ctrl+S to freeze terminal
-TERM=xterm-256color # For zsh-autosuggestions on TTY
+
+if [[ -z $TERM || $TERM == dumb ]]; then
+    # Fix zsh-autosuggestions on TTY
+    export TERM=xterm-256color
+fi
 
 # History
 HISTSIZE=10000
@@ -23,7 +27,7 @@ _comp_options+=(globdots) # Include hidden files.
 # Git
 autoload -Uz add-zsh-hook vcs_info
 add-zsh-hook precmd vcs_info
-zstyle ':vcs_info:git:*' formats '(%b)'
+zstyle ':vcs_info:git:*' formats '(%b)' # Branch only for performance
 
 # Prompt
 autoload -Uz colors && colors
