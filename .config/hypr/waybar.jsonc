@@ -1,106 +1,121 @@
 {
-    "layer": "top",
+  "layer": "top",
+  "modules-left": [
+    "custom/menu",
+    "custom/separator",
+    "hyprland/workspaces",
+    "custom/separator",
+    "hyprland/window",
+  ],
+  "modules-center": ["mpris"],
+  "modules-right": [
+    "network",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "clock",
+    "custom/separator",
+    "idle_inhibitor",
+    "privacy",
+    "tray",
+  ],
 
-    "modules-left": ["custom/menu", "hyprland/workspaces", "mpris"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "pulseaudio", "clock", "privacy", "tray"],
+  "custom/menu": {
+    "format": "",
+    "tooltip-format": "Launcher (right click: power menu)",
+    "on-click": "rofi -show drun",
+    "on-click-right": "power-menu.sh",
+  },
 
-    "hyprland/workspaces": {
-        "format": "{icon} {name} {windows}",
-        "format-icons": {
-            "visible": "󰐾",
-            "urgent": "󰗖",
-            "default": "󰝦"
-        },
-        "workspace-taskbar": {
-            "enable": true,
-            "format": "{icon}",
-            "icon-size": 16,
-        }
+  "hyprland/workspaces": {
+    "format": "{icon} {name} {windows}",
+    "format-icons": {
+      "visible": "󰐾",
+      "urgent": "󰗖",
+      "default": "󰝦",
     },
-    "hyprland/window": {
-        "separate-outputs": true,
-        "rewrite": {
-            "(.*) — Mozilla Firefox": "󰈹 $1",
-            "(.*) - chromium": " $1"
-        },
+    "workspace-taskbar": {
+      "enable": true,
+      "format": "{icon}",
+      "icon-size": 16,
     },
-    "mpris": {
-        "format": "{status_icon} {title}",
-        "status-icons": {
-            "playing": "󰏤",
-            "paused": "󰐊",
-            "stopped": "󰓛"
-        }
+  },
+
+  "hyprland/window": {
+    "separate-outputs": true,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹 $1",
+      "(.*) - chromium": " $1",
     },
-    "tray": {
-        "spacing": 8
+  },
+
+  "mpris": {
+    "format": "{status_icon} {title}",
+    "status-icons": {
+      "playing": "󰏤",
+      "paused": "󰐊",
+      "stopped": "󰓛",
     },
-    "clock": {
-        "format": " {:%m/%d/%y  %I:%M}",
-        "format-alt": " {:%A, %B %d, %Y  %I:%M:%S %p}",
-        "tooltip-format": "<tt>{calendar}</tt>",
-        "on-click-right": "$TERMINAL --title 'Floating Terminal' --hold -e cal -y"
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-disconnected": "󰖪 ",
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "tooltip-format": "Gateway: {gwaddr}, Interface: {ifname}",
+    "tooltip-format-wifi": "IP: {ipaddr}, Gateway: {gwaddr}, Interface: {ifname}",
+    "tooltip-format-disconnected": "Network disconnected",
+    "on-click": "toggle-network.sh",
+    "on-click-right": "$TERMINAL --title 'Floating Terminal' -e nmtui connect",
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "󰂯 {icon} {volume}% {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "phone": "",
+      "phone-muted": "",
+      "default": ["", ""],
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": " {percent}%",
-        "tooltip": false
+    "on-click": "volume.sh toggle",
+    "on-click-right": "pavucontrol",
+  },
+
+  "clock": {
+    "format": " {:%m/%d/%y  %H:%M}",
+    "format-alt": " {:%A, %B %d, %Y  %H:%M:%S %p}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "on-click-right": "$TERMINAL --title 'Floating Terminal' --hold -e cal -y",
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip-format-activated": "Idle inhibitor: on",
+    "tooltip-format-deactivated": "Idle inhibitor: off",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " ",
     },
-    "battery": {
-        "states": {
-            "full-at": 98,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-alt": "{icon}",
-        "format-charging": "󰢟 {capacity}%",
-        "format-plugged": "󱊦 {capacity}%",
-        "format-full": "", // An empty format will hide the module
-        "format-icons": ["󱃍", "󱊡", "󱊢", "󱊣"]
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "󰝟 {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "volume.sh toggle",
-        "on-click-right": "pavucontrol"
-    },
-    "network": {
-	    "interface": "wlp6s0",
-	    "format": "{ifname}",
-	    "format-wifi": "  {essid} ({signalStrength}%)",
-	    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
-	    "format-disconnected": "󰖪",
-	    "tooltip-format": "󰈀 {ifname} via {gwaddr}",
-	    "tooltip-format-wifi": "IP: {ipaddr} Interface: {ifname} ",
-	    "tooltip-format-ethernet": "IP: {ipaddr} Interface: {ifname}",
-	    "tooltip-format-disconnected": "Network disconnected",
-	    "max-length": 50,
-	    "on-click": "toggle-network.sh",
-	    "on-click-right": "$TERMINAL --title 'Floating Terminal' -e nmtui connect"
-	},
-    "privacy": {
-        "icon-size": 16,
-        "icon-spacing": 8
-    },
-    "custom/menu": {
-        "format": "",
-        "tooltip-format": "Launcher (right click for power menu)",
-        "on-click": "rofi -show drun",
-        "on-click-right": "power.sh"
-    }
+  },
+
+  "privacy": {
+    "icon-size": 16,
+    "icon-spacing": 8,
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+  },
+
+  "custom/separator": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false,
+  },
 }
