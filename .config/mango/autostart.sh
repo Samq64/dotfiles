@@ -1,7 +1,7 @@
 #!/bin/sh
 gtklock &
 swaybg -m fill -i ~/.local/share/wallpaper &
-waybar -c ~/.config/mango/waybar.jsonc
+waybar -c ~/.config/mango/waybar.jsonc &
 wl-clip-persist -c regular &
 mako &
 lxpolkit &
