@@ -1,5 +1,0 @@
-[filechooser]
-env=TERMCMD=$TERMINAL --title "Floating Terminal"
-cmd=yazi-wrapper.sh
-
-# vim:ft=ini
