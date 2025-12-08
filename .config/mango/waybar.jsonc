@@ -24,7 +24,7 @@
     "format": "🥭",
     "tooltip-format": "Launcher (right click: power menu)",
     "on-click": "rofi -show drun",
-    "on-click-right": "power.sh",
+    "on-click-right": "power-menu.sh",
   },
 
   "ext/workspaces": {
