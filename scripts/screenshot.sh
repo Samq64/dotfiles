@@ -1,6 +1,6 @@
 #!/bin/sh
 set -euo
-path="$HOME/img/screenshots/$(date +%F_%H-%M-%S).png"
+path=~/img/screenshots/$(date +%F_%H-%M-%S).png
 
 case $XDG_CURRENT_DESKTOP in
     "Hyprland")
