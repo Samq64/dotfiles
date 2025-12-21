@@ -22,7 +22,8 @@ label.module:not(#custom-separator),
 }
 
 label.module:not(#custom-separator):hover,
-#workspaces button:hover {
+#workspaces button:hover,
+#window:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 

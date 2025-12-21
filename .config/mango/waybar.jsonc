@@ -39,6 +39,7 @@
 
   "dwl/window": {
     "format": "[{layout}] {title}",
+    "on-click": "mango-layout-menu.sh",
   },
 
   "mpris": {
