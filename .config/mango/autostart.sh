@@ -1,5 +1,5 @@
 #!/bin/sh
-gtklock &
+hyprlock &
 swaybg -m fill -i ~/.local/share/wallpaper &
 waybar -c ~/.config/mango/waybar.jsonc &
 wl-clip-persist -c regular &
