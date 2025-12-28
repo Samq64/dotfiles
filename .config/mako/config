@@ -1,24 +1,22 @@
-layer=overlay
-width=300
-height=300
-border-size=2
-border-radius=4
-max-icon-size=64
-font=JetBrainsMono NF 9
+layer = overlay
+width = 300
+height = 300
+border-size = 2
+border-radius = 4
+max-icon-size = 64
+font = JetBrainsMono NF 9
 
-# Colorscheme based on Tokyo night
-background-color=#1a1b26D8
-progress-color=#32344a
-text-color=#a9b1d6
-border-color=#7aa2f7
-default-timeout=10000
+# Colorscheme based on Tokyo Night
+background-color = #1a1b26D8
+progress-color = #32344a
+text-color = #a9b1d6
+border-color = #7aa2f7
+default-timeout = 10000
 
 [urgency=low]
-border-color=#444b6a
-default-timeout=3000
+border-color = #444b6a
+default-timeout = 3000
 
 [urgency=high]
-border-color=#f7768e
-default-timeout=0
-
-# vim:ft=conf
+border-color = #f7768e
+default-timeout = 0

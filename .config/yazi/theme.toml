@@ -5,9 +5,10 @@ dark = "tokyo-night"
 prepend_dirs = [
   { name = ".cache", text = ""},
   { name = ".config", text = "" },
+  { name = ".dotfiles", text = ""},
   { name = ".gnupg", text = "󰌆" },
-  { name = ".mozilla", text = "󰈹"},
   { name = ".ssh", text = ""},
+  { name = "apps", text = ""},
   { name = "dev", text = "" },
   { name = "docs", text = "" },
   { name = "img", text = "" },

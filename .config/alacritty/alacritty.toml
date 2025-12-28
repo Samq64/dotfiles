@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/tokyo-night.toml"]
+import = ["~/.config/alacritty/tokyo-night.toml"]
 
 [window]
 opacity = 0.9

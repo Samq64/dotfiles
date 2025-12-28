@@ -32,6 +32,7 @@ label.module:not(#custom-separator):hover,
   padding: 0 4px;
 }
 
+#workspaces button.hidden,
 #custom-separator,
 #pulseaudio.muted,
 #network.disconnected {

@@ -6,5 +6,6 @@ wl-clip-persist -c regular &
 mako &
 lxpolkit &
 swayidle &
+
 # Fix screensharing
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots &
