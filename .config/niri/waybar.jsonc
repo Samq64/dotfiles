@@ -3,9 +3,9 @@
   "modules-left": [
     "custom/menu",
     "custom/separator",
-    "ext/workspaces",
+    "niri/workspaces",
     "custom/separator",
-    "dwl/window",
+    "niri/window"
   ],
   "modules-center": ["mpris"],
   "modules-right": [
@@ -17,29 +17,30 @@
     "custom/separator",
     "idle_inhibitor",
     "privacy",
-    "tray",
+    "tray"
   ],
 
   "custom/menu": {
-    "format": "🥭",
+    "format": "󰗢",
     "tooltip-format": "Launcher (right click: power menu)",
     "on-click": "rofi -show drun",
-    "on-click-right": "power-menu.sh",
+    "on-click-right": "power-menu.sh"
   },
 
-  "ext/workspaces": {
-    "on-click": "activate",
-    "format": "{icon} {name}",
+  "niri/workspaces": {
+    "format": "{icon} {value}",
     "format-icons": {
       "active": "󰐾",
-      "urgent": "󰗖",
-      "default": "󰝦",
-    },
+      "default": "󰝦"
+    }
   },
-
-  "dwl/window": {
-    "format": "[{layout}] {title}",
-    "on-click": "mango-layout-menu.sh",
+  "niri/window": {
+    "separate-outputs": true,
+    "format": "{}",
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹 $1",
+      "(.*) - chromium": " $1"
+    }
   },
 
   "mpris": {
@@ -47,10 +48,9 @@
     "status-icons": {
       "playing": "󰏤",
       "paused": "󰐊",
-      "stopped": "󰓛",
-    },
+      "stopped": "󰓛"
+    }
   },
-
   "network": {
     "format": "{ifname}",
     "format-disconnected": "󰖪 ",
@@ -60,7 +60,7 @@
     "tooltip-format-wifi": "IP: {ipaddr}, Gateway: {gwaddr}, Interface: {ifname}",
     "tooltip-format-disconnected": "Network disconnected",
     "on-click": "toggle-network.sh",
-    "on-click-right": "$FLOATERM -e nmtui connect",
+    "on-click-right": "$FLOATERM -e nmtui connect"
   },
 
   "pulseaudio": {
@@ -73,17 +73,17 @@
       "headphone": "",
       "phone": "",
       "phone-muted": "",
-      "default": ["", ""],
+      "default": ["", ""]
     },
     "on-click": "volume.sh toggle",
-    "on-click-right": "$FLOATERM -e wiremix",
+    "on-click-right": "$FLOATERM -e wiremix"
   },
 
   "clock": {
     "format": " {:%m/%d/%y  %H:%M}",
     "format-alt": " {:%a %b %d %Y  %H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
-    "on-click-right": "$FLOATERM --hold -e cal -y",
+    "on-click-right": "$FLOATERM --hold -e cal -y"
   },
 
   "idle_inhibitor": {
@@ -92,23 +92,23 @@
     "tooltip-format-deactivated": "Idle inhibitor: off",
     "format-icons": {
       "activated": " ",
-      "deactivated": " ",
-    },
+      "deactivated": " "
+    }
   },
 
   "privacy": {
     "icon-size": 16,
-    "icon-spacing": 8,
+    "icon-spacing": 8
   },
 
   "tray": {
     "icon-size": 16,
-    "spacing": 8,
+    "spacing": 8
   },
 
   "custom/separator": {
     "format": "|",
     "interval": "once",
-    "tooltip": false,
-  },
+    "tooltip": false
+  }
 }

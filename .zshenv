@@ -1,8 +1,10 @@
 export PATH="$HOME/.local/bin":$PATH
 export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
-export TERMINAL="foot"
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
+
+export TERMINAL="foot"
+export FLOATERM="foot --app-id floaterm"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"

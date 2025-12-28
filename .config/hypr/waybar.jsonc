@@ -67,7 +67,7 @@
     "tooltip-format-wifi": "IP: {ipaddr}, Gateway: {gwaddr}, Interface: {ifname}",
     "tooltip-format-disconnected": "Network disconnected",
     "on-click": "toggle-network.sh",
-    "on-click-right": "$TERMINAL --title 'Floating Terminal' -e nmtui connect",
+    "on-click-right": "$FLOATERM -e nmtui connect",
   },
 
   "pulseaudio": {
@@ -83,14 +83,14 @@
       "default": ["", ""],
     },
     "on-click": "volume.sh toggle",
-    "on-click-right": "pavucontrol",
+    "on-click-right": "$FLOATERM -e wiremix",
   },
 
   "clock": {
     "format": " {:%m/%d/%y  %H:%M}",
     "format-alt": " {:%A, %B %d, %Y  %H:%M:%S %p}",
     "tooltip-format": "<tt>{calendar}</tt>",
-    "on-click-right": "$TERMINAL --title 'Floating Terminal' --hold -e cal -y",
+    "on-click-right": "$FLOATERM --hold -e cal -y",
   },
 
   "idle_inhibitor": {
