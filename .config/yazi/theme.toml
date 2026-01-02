@@ -1,6 +1,9 @@
 [flavor]
 dark = "tokyo-night"
 
+[indicator]
+padding = { open = "█", close = "█" }
+
 [icon]
 prepend_dirs = [
   { name = ".cache", text = ""},
