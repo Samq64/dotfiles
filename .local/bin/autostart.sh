@@ -7,5 +7,5 @@ swaybg -m fill -i ~/.local/share/wallpaper &
 waybar -c ~/.config/"$wm"/waybar.jsonc &
 wl-clip-persist -c regular &
 mako &
-lxpolkit &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 swayidle &
