@@ -1,0 +1,6 @@
+[general]
+fullscreen = true
+early-exit = true
+initial-tool = "crop"
+copy-command = "wl-copy"
+actions-on-enter = ["save-to-file"]
