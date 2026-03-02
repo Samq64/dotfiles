@@ -5,6 +5,8 @@ configuration {
     font: "JetBrainsMono NF 12";
     modi: "window,drun,run";
     show-icons: true;
+    scroll-method: 1; /* continuous scrolling */
+    cycle: false;
 }
 
 @theme "theme.rasi"
