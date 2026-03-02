@@ -1,18 +1,13 @@
-vim.lsp.config("*", {
-    root_markers = { ".git" },
+vim.pack.add({
+    "https://github.com/nvimtools/none-ls.nvim",
+    "https://github.com/neovim/nvim-lspconfig",
 })
 
-vim.lsp.config["luals"] = {
-    cmd = { "lua-language-server" },
-    filetypes = { "lua" },
-    root_markers = { ".luarc.json", ".luarc.jsonc" },
+vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
-            telemetry = {
-                enable = false,
-            },
+            telemetry = { enable = false },
             format = {
-                enable = true,
                 defaultConfig = {
                     quote_style = "double",
                     trailing_table_separator = "smart",
@@ -20,28 +15,20 @@ vim.lsp.config["luals"] = {
             },
         },
     },
-}
-
-vim.lsp.config["ts_ls"] = {
-    cmd = { "typescript-language-server", "--stdio" },
-    filetypes = { "javascript", "typescript" },
-    root_markers = { "eslint.config.mjs", ".prettierrc.json", ".prettierignore" },
-}
-
-vim.lsp.config["clangd"] = {
-    cmd = { "clangd" },
-    root_markers = { ".", "Makefile" },
-    filetypes = { "c", "cpp" },
-}
-
-vim.lsp.config.bashls = {
-  cmd = { 'bash-language-server', 'start' },
-  filetypes = { 'bash', 'sh' }
-}
-
-vim.diagnostic.config({
-    --virtual_lines = true;
-    virtual_text = { current_line = true },
 })
 
-vim.lsp.enable({ "luals", "ts_ls", "clangd", "bashls" })
+-- Package names are for Arch Linux
+vim.lsp.enable({
+    "clangd", -- clang
+    "jsonls", -- vscode-json-languageserver
+    "lua_ls", -- lua-language-server
+    "pyright",
+})
+
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.black, -- python-black
+        null_ls.builtins.formatting.prettier,
+    },
+})
