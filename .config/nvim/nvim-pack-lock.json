@@ -25,16 +25,16 @@
       "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
-    "mini.nvim": {
-      "rev": "0098de999048af0539183d625c52d733318a441b",
-      "src": "https://github.com/nvim-mini/mini.nvim"
+    "none-ls-extras.nvim": {
+      "rev": "517f87c1e6cd511e787d77127d7fdb12b7b79db3",
+      "src": "https://github.com/nvimtools/none-ls-extras.nvim"
     },
     "none-ls.nvim": {
       "rev": "f61f46ded0ca9edce7a09b674f8e162d10921426",
       "src": "https://github.com/nvimtools/none-ls.nvim"
     },
     "nvim-colorizer.lua": {
-      "rev": "a6919ed9aadd0a8b2c11f264c9cbd41316dabf73",
+      "rev": "3c3a9dc9bda4a926bc84b2a1be783374546c252c",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-lspconfig": {

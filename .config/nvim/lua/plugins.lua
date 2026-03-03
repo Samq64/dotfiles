@@ -12,10 +12,18 @@ vim.pack.add({
     "https://github.com/folke/which-key.nvim",
 })
 
-require("colorizer").setup()
 require("fzf-lua").setup()
 require("gitsigns").setup()
 require("which-key").setup()
+
+require("colorizer").setup({
+    options = {
+        parsers = {
+            css = true,
+            names = { enable = false },
+        },
+    },
+})
 
 require("ibl").setup({
     indent = { char = "▏" },
