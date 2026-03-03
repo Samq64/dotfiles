@@ -1,5 +1,13 @@
-local function map(mode, key, cmd)
-    vim.keymap.set(mode, key, cmd, { silent = true, noremap = true })
+local function map(mode, key, cmd, opts)
+    opts = vim.tbl_extend("force", { silent = true, noremap = true }, opts or {})
+    vim.keymap.set(mode, key, cmd, opts)
+end
+
+local function inactive_plugins()
+    return vim.iter(vim.pack.get())
+        :filter(function(x) return not x.active end)
+        :map(function(x) return x.spec.name end)
+        :totable()
 end
 
 -- Map leader to space
@@ -9,14 +17,14 @@ vim.g.maplocalleader = " "
 -- Toggles
 map("n", "<leader>ts", ":setlocal spell!<CR>")
 map("n", "<leader>tr", ":setlocal relativenumber!<CR>")
-map("n", "<leader>tw", ":set wrap!<CR>")
+map("n", "<leader>tw", ":setlocal wrap!<CR>")
 map("n", "<leader>te", ":NvimTreeToggle<CR>")
 map("n", "<leader>tt", ":ToggleTerm<CR>")
 
 map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Replace all
-vim.keymap.set("n", "<leader>s", ":%s//g<Left><Left>")
+map("n", "<leader>s", ":%s//g<Left><Left>", { silent = false, desc = "Replace all" })
 
 -- Better splitting
 map("", "<C-h>", "<C-w>h")
@@ -31,8 +39,12 @@ map("n", "<leader>q", ":bd<CR>")
 map("n", "<leader>Q", ":bd!<CR>")
 
 -- LSP
-map("n", "<leader>bf", vim.lsp.buf.format)
-map("n", "grd", vim.diagnostic.open_float)
+map("n", "<leader>bf", vim.lsp.buf.format, { desc = "Format buffer" })
+map("n", "grd", vim.diagnostic.open_float, { desc = "Open diagnostics float" })
+
+-- vim.pack
+map("n", "<leader>pu", function() vim.pack.update() end, { desc = "Update plugins" })
+map("n", "<leader>pc", function() vim.pack.del(inactive_plugins()) end, { desc = "Remove unused plugins" })
 
 -- fzf-lua
 map("n", "<leader><leader>", ":FzfLua buffers<CR>")
