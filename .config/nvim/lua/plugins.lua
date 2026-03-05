@@ -1,4 +1,4 @@
-vim.pack.add({
+vim.pack.add {
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/nvim-tree/nvim-web-devicons",
 
@@ -10,13 +10,12 @@ vim.pack.add({
     "https://github.com/nvim-tree/nvim-tree.lua",
     "https://github.com/akinsho/toggleterm.nvim",
     "https://github.com/folke/which-key.nvim",
-})
+}
 
-require("fzf-lua").setup()
 require("gitsigns").setup()
 require("which-key").setup()
 
-require("colorizer").setup({
+require("colorizer").setup {
     options = {
         parsers = {
             css_fn = true,
@@ -26,23 +25,23 @@ require("colorizer").setup({
             },
         },
     },
-})
+}
 
-require("ibl").setup({
+require("ibl").setup {
     indent = { char = "▏" },
-})
+}
 
-require("lualine").setup({
+require("lualine").setup {
     options = { theme = "auto" },
     sections = {
         lualine_c = { "buffers" },
     },
-})
+}
 
-require("nvim-tree").setup({
+require("nvim-tree").setup {
     filters = { dotfiles = true },
-})
+}
 
-require("toggleterm").setup({
+require("toggleterm").setup {
     persist_mode = false,
-})
+}

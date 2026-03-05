@@ -31,6 +31,6 @@ o.foldmethod = "expr"
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 o.foldlevel = 99
 
-vim.diagnostic.config({
+vim.diagnostic.config {
     virtual_text = { current_line = true },
-})
+}
