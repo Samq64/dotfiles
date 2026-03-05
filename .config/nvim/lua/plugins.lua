@@ -19,8 +19,11 @@ require("which-key").setup()
 require("colorizer").setup({
     options = {
         parsers = {
-            css = true,
-            names = { enable = false },
+            css_fn = true,
+            hex = {
+                default = true,
+                aarrggbb = false, -- 0xAARRGGBB
+            },
         },
     },
 })
