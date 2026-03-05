@@ -2,7 +2,7 @@ configuration {
     display-drun: "";
     display-window: "Windows:";
     drun-display-format: "{icon} {name}";
-    font: "JetBrainsMono NF 12";
+    font: "JetBrains Mono 12";
     modi: "window,drun,run";
     show-icons: true;
     scroll-method: 1; /* continuous scrolling */

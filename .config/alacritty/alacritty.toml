@@ -5,5 +5,5 @@ import = ["~/.config/alacritty/tokyo-night.toml"]
 opacity = 0.9
 
 [font]
-normal = { family = "JetBrainsMono NF", style = "Regular" }
+normal = { family = "JetBrains Mono", style = "Regular" }
 size = 11

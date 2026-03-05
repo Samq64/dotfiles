@@ -14,7 +14,7 @@ My Arch setup as of December 2025 uses the following:
 - Audio: PipeWire + [wiremix](https://github.com/tsowell/wiremix)
 - Shell: [Zsh](https://zsh.org) with [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) and [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - System monitor: [Btop](https://github.com/aristocratos/btop), [fastfetch](https://github.com/fastfetch-cli/fastfetch)
-- Monospace font: [Jetbrains mono nerd](https://www.nerdfonts.com)
+- Monospace font: [Jetbrains Mono](https://jetbrains.com/lp/mono) with [nerd symbols](https://www.nerdfonts.com/)
 - GTK theme: [Materia dark](https://github.com/nana-4/materia-theme)
 - Terminal: [Foot](https://codeberg.org/dnkl/foot)
 - Editor: [Neovim](https://neovim.io/)

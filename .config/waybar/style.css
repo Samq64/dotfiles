@@ -4,7 +4,7 @@ tooltip,
 window#waybar {
   background-color: rgba(26, 27, 38, 0.9);
   color: #a9b1d6;
-  font-family: "JetBrainsMono NF", sans-serif;
+  font-family: "JetBrains Mono";
   font-size: 14px;
 }
 
