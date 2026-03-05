@@ -3,11 +3,18 @@ local function map(mode, key, cmd, opts)
     vim.keymap.set(mode, key, cmd, opts)
 end
 
-local function inactive_plugins()
-    return vim.iter(vim.pack.get())
+local function pum_remap(from, to)
+    vim.keymap.set("c", from, function()
+        return vim.fn.pumvisible() == 1 and to or from
+    end, { expr = true })
+end
+
+local function clean_plugins()
+    local inactive = vim.iter(vim.pack.get())
         :filter(function(x) return not x.active end)
         :map(function(x) return x.spec.name end)
         :totable()
+    vim.pack.del(inactive)
 end
 
 -- Map leader to space
@@ -43,8 +50,8 @@ map("n", "<leader>bf", vim.lsp.buf.format, { desc = "Format buffer" })
 map("n", "grd", vim.diagnostic.open_float, { desc = "Open diagnostics float" })
 
 -- vim.pack
-map("n", "<leader>pu", function() vim.pack.update() end, { desc = "Update plugins" })
-map("n", "<leader>pc", function() vim.pack.del(inactive_plugins()) end, { desc = "Remove unused plugins" })
+map("n", "<leader>pu", vim.pack.update, { desc = "Update plugins" })
+map("n", "<leader>pc", clean_plugins, { desc = "Remove unused plugins" })
 
 -- fzf-lua
 map("n", "<leader><leader>", ":FzfLua buffers<CR>")
@@ -55,7 +62,7 @@ map("n", "<leader>fr", ":FzfLua resume<CR>")
 
 -- More intuitive menu navigation
 -- https://github.com/neovim/neovim/issues/9953
-vim.api.nvim_set_keymap("c", "<Up>", 'pumvisible() ? "<Left>" : "<Up>"', { expr = true, noremap = true })
-vim.api.nvim_set_keymap("c", "<Down>", 'pumvisible() ? "<Right>" : "<Down>"', { expr = true, noremap = true })
-vim.api.nvim_set_keymap("c", "<Left>", 'pumvisible() ? "<Up>" : "<Left>"', { expr = true, noremap = true })
-vim.api.nvim_set_keymap("c", "<Right>", 'pumvisible() ? "<Down>" : "<Right>"', { expr = true, noremap = true })
+pum_remap("<Up>", "<Left>")
+pum_remap("<Down>", "<Right>")
+pum_remap("<Left>", "<Up>")
+pum_remap("<Right>", "<Down>")
