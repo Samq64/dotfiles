@@ -7,4 +7,5 @@ waybar -c ~/.config/"$wm"/waybar.jsonc &
 wl-clip-persist -c regular &
 mako &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+automount.sh &
 swayidle &

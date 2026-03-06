@@ -9,6 +9,8 @@
   ],
   "modules-center": ["mpris"],
   "modules-right": [
+    "custom/drives",
+    "custom/separator",
     "network",
     "custom/separator",
     "pulseaudio",
@@ -111,4 +113,14 @@
     "interval": "once",
     "tooltip": false,
   },
+  "custom/drives": {
+    "exec": "~/.config/waybar/drives.sh",
+    "on-click": "~/.config/waybar/drives.sh open",
+    "on-click-right": "$FLOATERM --hold -e lsblk",
+    "on-click-middle": "~/.config/waybar/drives.sh unmount",
+    "on-scroll-up": "~/.config/waybar/drives.sh prev",
+    "on-scroll-down": "~/.config/waybar/drives.sh next",
+    "return-type": "json",
+    "signal": 1,
+  }
 }
