@@ -19,8 +19,15 @@ case "$1" in
     open) xdg-open "${drives[$index]}" ;;
     unmount)
         device=$(findmnt -no SOURCE --target "${drives[$index]}")
-        udisksctl unmount -b "$device"
-        notify-send "Unmounted $device"
+        output=$(udisksctl unmount -b "$device" 2>&1)
+        status=$?
+        if [ $status -eq 0 ]; then
+            notify-send "Unmounted $device"
+        elif echo "$output" | grep -qi "busy"; then
+            notify-send -u critical "Cannot unmount $device: An operation is pending or the device is busy."
+        else
+            notify-send -u critical "Failed to unmount $device"
+        fi
         exit
         ;;
 esac
