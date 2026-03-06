@@ -6,7 +6,6 @@ configuration {
     modi: "window,drun,run";
     show-icons: true;
     scroll-method: 1; /* continuous scrolling */
-    cycle: false;
 }
 
 @theme "theme.rasi"
