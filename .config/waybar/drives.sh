@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Refresh is handled by udiskie. Requires jq
+# Requires jq
+# Device refresh is handled by udiskie
 
 mapfile -t devices < <(
     lsblk --json --path -o NAME,SIZE,LABEL,PARTLABEL,MOUNTPOINT,FSTYPE,TYPE |
@@ -19,7 +20,7 @@ index=${index:-0}
 
 update_device_info() {
     IFS='|' read -r device filesystem size label partlabel mountpoint <<< "${devices[$index]}"
-    label=${label:-${partlabel:-${device##*/}}}
+    label=${label:-${partlabel:-${device##*/}}} # label > partlabel > device name
 }
 
 mount_and_open() {
@@ -37,7 +38,7 @@ unmount_drive() {
     update_device_info
     [[ -z "$mountpoint" ]] && exit
     if output=$(udisksctl unmount -b "$device" 2>&1); then
-        notify-send "Unmounted $label"
+        notify-send "Unmounted $label ($device)"
     elif [[ ${output,,} == *busy* ]]; then
         notify-send -u critical "Drive busy: $label ($device)"
     else
@@ -66,10 +67,12 @@ text=" $label"
 (( total > 1 )) && text+=" ($(( index + 1))/$total)"
 
 tooltip="Device: $device\nFilesystem: $filesystem\nSize: $size"
-class="unmounted"
 if [[ -n $mountpoint ]]; then
     tooltip+="\nMount: $mountpoint"
     class="mounted"
+else
+    tooltip+="\nUnmounted"
+    class="unmounted"
 fi
 
 printf '{"text":"%s","tooltip":"%s","class":"%s"}\n' "$text" "$tooltip" "$class"
