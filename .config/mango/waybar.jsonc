@@ -121,6 +121,7 @@
     "on-scroll-up": "~/.config/waybar/drives.sh prev",
     "on-scroll-down": "~/.config/waybar/drives.sh next",
     "return-type": "json",
+    "interval": "once",
     "signal": 1,
   }
 }

@@ -1,0 +1,4 @@
+program_options:
+  notify: false
+  tray: false
+  event_hook: "udiskie-hook.sh {event} {device_file}"

@@ -35,7 +35,8 @@ label.module:not(#custom-separator):hover,
 #workspaces button.hidden,
 #custom-separator,
 #pulseaudio.muted,
-#network.disconnected {
+#network.disconnected,
+#custom-drives.unmounted {
   color: #444b6a;
 }
 

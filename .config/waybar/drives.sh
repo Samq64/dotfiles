@@ -1,45 +1,75 @@
 #!/usr/bin/env bash
-shopt -s nullglob
+# Refresh is handled by udiskie. Requires jq
 
-state_file='/tmp/waybar_drive_index'
-drives=(/run/media/"$USER"/*)
-total=${#drives[@]}
+mapfile -t devices < <(
+    lsblk --json --path -o NAME,SIZE,LABEL,PARTLABEL,MOUNTPOINT,FSTYPE,TYPE |
+    jq -r '.. | objects | select(.type == "part" and .fstype != null and
+            (.mountpoint == null or (.mountpoint | test("^/(run/)?media/")))
+        )
+        | "\(.name)|\(.fstype)|\(.size)|\(.label // "")|\(.partlabel // "")|\(.mountpoint // "")"
+    '
+)
+readonly total=${#devices[@]}
+(( total < 1 )) && { echo ""; exit; }
 
-if (( total == 0 )); then
-    echo 0 > "$state_file"
-    echo '{"text":""}'
+readonly state_file="$XDG_RUNTIME_DIR/waybar_drive_index"
+read -r index < "$state_file" 2>/dev/null
+index=${index:-0}
+(( index >= total )) && index=$((total - 1))
+
+update_device_info() {
+    IFS='|' read -r device filesystem size label partlabel mountpoint <<< "${devices[$index]}"
+    label=${label:-${partlabel:-${device##*/}}}
+}
+
+mount_and_open() {
+    update_device_info
+    if [[ -z $mountpoint ]] && ! udisksctl mount -b "$device"; then
+        notify-send -u critical "Failed to mount $label ($device)"
+        exit
+    fi
+    mountpoint=$(findmnt -n -o TARGET "$device")
+    xdg-open "$mountpoint" &
     exit
-fi
+}
 
-read -r index < "$state_file" 2>/dev/null || index=0
+unmount_drive() {
+    update_device_info
+    [[ -z "$mountpoint" ]] && exit
+    if output=$(udisksctl unmount -b "$device" 2>&1); then
+        notify-send "Unmounted $label"
+    elif [[ ${output,,} == *busy* ]]; then
+        notify-send -u critical "Drive busy: $label ($device)"
+    else
+        notify-send -u critical "Failed to unmount $label ($device)"
+    fi
+    exit
+}
 
 case "$1" in
+    /dev/*)
+        for i in "${!devices[@]}"; do
+            IFS='|' read -r dev _ <<< "${devices[$i]}"
+            [[ $dev == "$1" ]] && { echo "$i" > "$state_file"; exit; }
+        done
+        exit ;;
+    open) mount_and_open ;;
+    unmount) unmount_drive ;;
     prev) index=$(( (index - 1 + total) % total )) ;;
     next) index=$(( (index + 1) % total )) ;;
-    open) xdg-open "${drives[$index]}" ;;
-    unmount)
-        device=$(findmnt -no SOURCE --target "${drives[$index]}")
-        output=$(udisksctl unmount -b "$device" 2>&1)
-        status=$?
-        if [ $status -eq 0 ]; then
-            notify-send "Unmounted $device"
-        elif echo "$output" | grep -qi "busy"; then
-            notify-send -u critical "Cannot unmount $device: An operation is pending or the device is busy."
-        else
-            notify-send -u critical "Failed to unmount $device"
-        fi
-        exit
-        ;;
 esac
 
-index=$(( index % total ))
 echo "$index" > "$state_file"
+update_device_info
 
-mountpoint="${drives[$index]}"
-device=$(findmnt -no SOURCE --target "$mountpoint")
+text=" $label"
+(( total > 1 )) && text+=" ($(( index + 1))/$total)"
 
-text=" $(basename "$mountpoint")"
-[[ total -gt 1 ]] && text+=" ($((index + 1))/$total)"
+tooltip="Device: $device\nFilesystem: $filesystem\nSize: $size"
+class="unmounted"
+if [[ -n $mountpoint ]]; then
+    tooltip+="\nMount: $mountpoint"
+    class="mounted"
+fi
 
-tooltip="Device: $device\nMounted at $mountpoint"
-printf '{"text":"%s","tooltip":"%s"}\n' "$text" "$tooltip"
+printf '{"text":"%s","tooltip":"%s","class":"%s"}\n' "$text" "$tooltip" "$class"
