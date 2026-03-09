@@ -62,7 +62,7 @@
     "tooltip-format-wifi": "IP: {ipaddr}, Gateway: {gwaddr}, Interface: {ifname}",
     "tooltip-format-disconnected": "Network disconnected",
     "on-click": "toggle-network.sh",
-    "on-click-right": "$FLOATERM -e nmtui connect",
+    "on-click-right": "floaterm.sh nmtui connect",
   },
 
   "pulseaudio": {
@@ -78,14 +78,14 @@
       "default": ["", ""],
     },
     "on-click": "volume.sh toggle",
-    "on-click-right": "$FLOATERM -e wiremix",
+    "on-click-right": "floaterm.sh wiremix",
   },
 
   "clock": {
     "format": " {:%m/%d/%y  %H:%M}",
     "format-alt": " {:%a %b %d %Y  %H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
-    "on-click-right": "$FLOATERM --hold -e cal -y",
+    "on-click-right": "floaterm.sh --hold cal -y",
   },
 
   "idle_inhibitor": {
@@ -116,7 +116,7 @@
   "custom/drives": {
     "exec": "~/.config/waybar/drives.sh",
     "on-click": "~/.config/waybar/drives.sh open",
-    "on-click-right": "$FLOATERM --hold -e lsblk",
+    "on-click-right": "floaterm.sh --hold lsblk -o NAME,TYPE,SIZE,FSTYPE,RO,LABEL,MOUNTPOINTS,MODEl",
     "on-click-middle": "~/.config/waybar/drives.sh unmount",
     "on-scroll-up": "~/.config/waybar/drives.sh prev",
     "on-scroll-down": "~/.config/waybar/drives.sh next",
