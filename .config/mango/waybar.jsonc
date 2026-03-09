@@ -78,6 +78,7 @@
       "default": ["", ""],
     },
     "on-click": "volume.sh toggle",
+    "on-click-middle": "volume.sh toggle mic",
     "on-click-right": "floaterm.sh wiremix",
   },
 
