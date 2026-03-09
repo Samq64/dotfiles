@@ -1,0 +1,17 @@
+[Default Applications]
+text/html=helium.desktop
+x-scheme-handler/http=helium.desktop
+x-scheme-handler/https=helium.desktop
+x-scheme-handler/about=helium.desktop
+x-scheme-handler/unknown=helium.desktop
+image/avif=swayimg.desktop
+image/bmp=swayimg.desktop
+image/gif=swayimg.desktop
+image/heic=swayimg.desktop
+image/heif=swayimg.desktop
+image/jpeg=swayimg.desktop
+image/jxl=swayimg.desktop
+image/png=swayimg.desktop
+image/svg+xml=swayimg.desktop
+image/tiff=swayimg.desktop
+image/webp=swayimg.desktop
