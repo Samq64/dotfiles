@@ -10,6 +10,7 @@ local exclude = { "markdown", "text" }
 
 require("blink.cmp").setup {
     enabled = function() return not vim.tbl_contains(exclude, vim.bo.filetype) end,
+    fuzzy = { implementation = "prefer_rust" },
     keymap = { preset = "super-tab" },
     cmdline = { enabled = false },
 }
