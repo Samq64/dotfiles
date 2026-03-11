@@ -26,7 +26,7 @@ local parsers = {
     "yaml",
 }
 
-require("nvim-treesitter").install(parsers)
+require("nvim-treesitter").install(parsers):wait(300000)
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = parsers,
