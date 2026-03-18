@@ -39,7 +39,7 @@ require("lualine").setup {
 }
 
 require("nvim-tree").setup {
-    filters = { dotfiles = true },
+    filters = { dotfiles = false },
 }
 
 require("toggleterm").setup {
