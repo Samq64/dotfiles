@@ -10,7 +10,7 @@ case $XDG_CURRENT_DESKTOP in
 esac
 
 if [ "$1" = "area" ]; then
-    grim -c -o "$monitor" -t ppm - | satty --output-filename $path --filename -
+    grim -c -o "$monitor" -t ppm - | satty --output-filename "$path" --filename -
     tmp=$(mktemp --suffix=.png)
     grim -t ppm -o "$monitor" "$tmp"
     swayimg --slideshow -f -a overlay "$tmp" &
@@ -22,5 +22,6 @@ else
     grim -c -o "$monitor" - | wl-copy
 fi
 
+mkdir -p "$(dirname "$path")"
 wl-paste > "$path" || exit 1
 notify-send -u low "Screenshot copied and saved to $path"
