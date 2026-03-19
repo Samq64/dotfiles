@@ -9,19 +9,14 @@ case $XDG_CURRENT_DESKTOP in
         monitor="$(mmsg -g -o | awk '$2 == "selmon" && $3 == 1 {print $1}')"
 esac
 
-if [ "$1" = "area" ]; then
-    grim -c -o "$monitor" -t ppm - | satty --output-filename "$path" --filename -
-    tmp=$(mktemp --suffix=.png)
-    grim -t ppm -o "$monitor" "$tmp"
-    swayimg --slideshow -f -a overlay "$tmp" &
-    pid=$!
-    grim -g "$(slurp -d)" - | wl-copy
-    kill $pid
-    rm "$tmp"
+if [ "$1" = area ]; then
+    still -p -c 'grim -g "$(slurp -d)" - | wl-copy'
 else
     grim -c -o "$monitor" - | wl-copy
 fi
 
 mkdir -p "$(dirname "$path")"
-wl-paste > "$path" || exit 1
-notify-send -u low "Screenshot copied and saved to $path"
+if [ "$(wl-paste -l)" = image/png ]; then
+    wl-paste > "$path"
+    notify-send -u low "Screenshot copied and saved to $path"
+fi
