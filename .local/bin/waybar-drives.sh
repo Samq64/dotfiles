@@ -37,11 +37,14 @@ mount_and_open() {
 unmount_drive() {
     update_device_info
     [[ -z "$mountpoint" ]] && exit
-    if ! output=$(udisksctl unmount -b "$device" 2>&1); then
+    notify_id=$(notify-send -p -u critical "Unmounting $label ($device)...")
+    if output=$(udisksctl unmount -b "$device" 2>&1); then
+        notify-send -r "$notify_id" "Unmounted $label"
+    else
         if [[ ${output,,} == *busy* ]]; then
-            notify-send "Drive is busy: $label ($device)"
+            notify-send -r "$notify_id" "Drive is busy: $label ($device)"
         else
-            notify-send -u critical "Failed to unmount $label ($device)"
+            notify-send -r "$notify_id" -u critical "Failed to unmount $label ($device)"
         fi
     fi
     exit
