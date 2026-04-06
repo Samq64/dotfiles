@@ -1,12 +1,22 @@
-[ -f "$ZDOTDIR/aliases.zsh" ] && source "$ZDOTDIR/aliases.zsh"
 setopt autocd prompt_subst interactive_comments
 unsetopt beep
-stty stop undef # Disable Ctrl+S to freeze terminal
+stty stop undef # Disable Ctrl+S freezing terminal
 
-if [[ -z $TERM || $TERM == dumb ]]; then
-    # Fix zsh-autosuggestions on TTY
-    export TERM=xterm-256color
-fi
+# Aliases
+alias v="nvim"
+alias l="ls -Alh --color=always --group-directories-first"
+alias dots='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias lazydots='lazygit --git-dir $HOME/.dotfiles --work-tree $HOME'
+
+# Change working directory with Yazi
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
 
 # History
 HISTSIZE=10000
@@ -42,6 +52,11 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search      # Up arrow
 bindkey "^[[B" down-line-or-beginning-search    # Down arrow
+
+# Dim zsh-autosuggestions on TTY
+if [[ $TERM == linux ]]; then
+    export TERM=xterm-256color
+fi
 
 # Plugins
 if [ -x "$(command -v fzf)" ]; then
