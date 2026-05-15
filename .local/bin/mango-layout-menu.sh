@@ -10,7 +10,7 @@ VS (Vertical Scroller)
 VT (Vertical Tile)
 VG (Vertical Grid)
 VK (Vertical Deck)
-TG (Tile Grid Mix)
+DW (Dwindle)
 S  (Scroller)" | rofi -dmenu -i -l 12 -p "")
 
 layout="$(echo "$selection" | awk '{print $1}')"
