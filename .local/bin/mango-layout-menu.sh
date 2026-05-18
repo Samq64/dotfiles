@@ -1,6 +1,7 @@
 #!/bin/sh
 selection=$(printf \
 "T (Tile)
+S  (Scroller)
 G  (Grid)
 M  (Monocle)
 K  (Deck)
@@ -11,7 +12,8 @@ VT (Vertical Tile)
 VG (Vertical Grid)
 VK (Vertical Deck)
 DW (Dwindle)
-S  (Scroller)" | rofi -dmenu -i -l 12 -p "")
+F  (Fair)
+VF (Vertical Fair)" | rofi -dmenu -i -l 14 -p "")
 
 layout="$(echo "$selection" | awk '{print $1}')"
 [ -n "$layout" ] && mmsg -l "$layout"
