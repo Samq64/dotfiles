@@ -1,6 +1,6 @@
 #!/bin/sh
 path=~/img/screenshots/$(date +%F_%H-%M-%S).png
-monitor="$(mmsg -g -o | awk '{ if ($3 == 1 && $2 == "selmon") print $1}')"
+monitor="$(mmsg get all-monitors | jq -r '.monitors[] | select(.active == true) | .name')"
 
 if [ "$1" = area ]; then
     still -p -c 'grim -g "$(slurp -d)" - | wl-copy'
