@@ -25,6 +25,7 @@ vim.lsp.enable {
     "jsonls", -- vscode-json-languageserver
     "lua_ls", -- lua-language-server
     "pyright",
+    "svelte",
 }
 
 local null_ls = require("null-ls")

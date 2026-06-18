@@ -1,7 +1,8 @@
-export PATH="$HOME/.local/bin":$PATH
 export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export GEM_HOME="$(gem env user_gemhome)"
+export PATH="$HOME/.local/bin:$PATH:$GEM_HOME/bin"
 
 export TERMINAL="foot"
 
@@ -15,6 +16,7 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle/config"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 export DVDCSS_CACHE="$XDG_DATA_HOME/dvdcss"
 export GOPATH="$XDG_DATA_HOME/go"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"

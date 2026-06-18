@@ -1,9 +1,9 @@
 [Default Applications]
-text/html=helium.desktop
-x-scheme-handler/http=helium.desktop
-x-scheme-handler/https=helium.desktop
-x-scheme-handler/about=helium.desktop
-x-scheme-handler/unknown=helium.desktop
+text/html=brave-origin.desktop
+x-scheme-handler/http=brave-origin.desktop
+x-scheme-handler/https=brave-origin.desktop
+x-scheme-handler/about=brave-origin.desktop
+x-scheme-handler/unknown=brave-origin.desktop
 image/avif=swayimg.desktop
 image/bmp=swayimg.desktop
 image/gif=swayimg.desktop
@@ -15,3 +15,8 @@ image/png=swayimg.desktop
 image/svg+xml=swayimg.desktop
 image/tiff=swayimg.desktop
 image/webp=swayimg.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+
+[Added Associations]
+text/plain=org.kde.kdeconnect.app.desktop;
+image/jpeg=org.x.Warpinator.desktop;

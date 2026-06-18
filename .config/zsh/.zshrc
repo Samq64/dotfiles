@@ -3,8 +3,9 @@ unsetopt beep
 stty stop undef # Disable Ctrl+S freezing terminal
 
 # Aliases
-alias v="nvim"
-alias l="ls -Alh --color=always --group-directories-first"
+alias v='nvim'
+alias l='ls -Alh --color=always --group-directories-first'
+alias rm='rm -I'
 alias dots='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias lazydots='lazygit --git-dir $HOME/.dotfiles --work-tree $HOME'
 

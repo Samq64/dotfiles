@@ -20,6 +20,7 @@ local parsers = {
     "json",
     "make",
     "python",
+    "svelte",
     "toml",
     "typescript",
     "vue",
